@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
+using NeuCMS.Platforms.MVC3.ContentService;
 
 namespace NeuCMS.Platforms.MVC3
 {
@@ -9,17 +11,29 @@ namespace NeuCMS.Platforms.MVC3
     {
         public static void InitContent(dynamic viewBag)
         {
-            viewBag.NeuCMS = new Content();
+            var client = new ContentServiceClient();
+            var content = client.QueryContent(string.Empty);
+            dynamic neuCMSContent = new NeuCMSContent(content);
+            viewBag.NeuContent = neuCMSContent;
         }
     }
 
-    public class Content
+    public class NeuCMSContent : DynamicObject
     {
-        public Content()
+        private List<ContentQueryResult> _results;
+
+        public NeuCMSContent(ContentQueryResults content)
         {
-            Message = "ASP.NET MVC Website!";
+            _results = content.Results;
         }
 
-        public string Message { get; set; }
+        public override bool TryGetMember(GetMemberBinder binder, out object result)
+        {
+            result = (from queryResult in _results
+                      where queryResult.ContentKey == binder.Name
+                      select queryResult.Content)
+                     .FirstOrDefault();
+            return result != null;
+        }
     }
 }

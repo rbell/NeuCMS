@@ -7,6 +7,6 @@ namespace NeuCMS.Services
     public interface IContentService
     {
         [OperationContract]
-        void DoWork();
+        ContentQueryResults QueryContent(string whereClause);
     }
 }
