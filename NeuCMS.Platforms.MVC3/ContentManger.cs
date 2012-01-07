@@ -11,7 +11,7 @@ namespace NeuCMS.Platforms.MVC3
     {
         public static void InitContent(dynamic viewBag)
         {
-            var client = new ContentServiceClient();
+            var client = ServiceClientFactory.CreateClient();
             var content = client.QueryContent(string.Empty);
             dynamic neuCMSContent = new NeuCMSContent(content);
             viewBag.NeuContent = neuCMSContent;
