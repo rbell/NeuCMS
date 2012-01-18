@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS", "NeuCMS\NeuCMS.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Repositories.EmbeddedRavenDB", "NeuCMS.Repositories.EmbeddedRavenDB\NeuCMS.Repositories.EmbeddedRavenDB.csproj", "{1A423178-6075-4A27-8E40-9CCDA7CC33B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Repositories.EmbeddedRavenDB.Tests", "NeuCMS.Repositories.EmbeddedRavenDB.Tests\NeuCMS.Repositories.EmbeddedRavenDB.Tests.csproj", "{4979F39A-0C17-4170-9DE9-31F103C08351}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{1A423178-6075-4A27-8E40-9CCDA7CC33B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A423178-6075-4A27-8E40-9CCDA7CC33B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A423178-6075-4A27-8E40-9CCDA7CC33B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4979F39A-0C17-4170-9DE9-31F103C08351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4979F39A-0C17-4170-9DE9-31F103C08351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4979F39A-0C17-4170-9DE9-31F103C08351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4979F39A-0C17-4170-9DE9-31F103C08351}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
