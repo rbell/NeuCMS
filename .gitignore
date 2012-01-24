@@ -1,0 +1,8 @@
+# git ignore file
+_ReSharper.NeuCMS
+obj
+debug
+bin
+release
+*.suo
+*.user
