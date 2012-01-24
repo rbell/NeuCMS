@@ -1,6 +1,6 @@
 ﻿namespace NeuCMS.Core.Entities
 {
-    public class Atom<T> : Content
+    public class Atom : Content
     {
         /// <summary>
         /// Name of this Atom
@@ -15,6 +15,6 @@
         /// <summary>
         /// The Content of the Atom
         /// </summary>
-        public T Content { get; set; }
+        public string Content { get; set; }
     }
 }

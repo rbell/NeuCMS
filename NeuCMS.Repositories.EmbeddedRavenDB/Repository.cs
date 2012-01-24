@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects;
 using System.Linq;
 using NeuCMS.Core.Entities;
 using NeuCMS.Core.Repositories;
@@ -34,7 +35,12 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB
 			throw new NotImplementedException();
 		}
 
-		public void Commit()
+	    public IObjectSet<Atom> Atoms
+	    {
+            get { return _context.ObjectSet<Atom>(); }
+	    }
+
+	    public void Commit()
 		{
 			_context.Save();
 		}

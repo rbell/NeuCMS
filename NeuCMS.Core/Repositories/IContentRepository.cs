@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects;
 using System.Linq;
 using NeuCMS.Core.Entities;
 
@@ -15,9 +16,9 @@ namespace NeuCMS.Core.Repositories
 
         void Dismantle();
 
+        IObjectSet<Atom> Atoms { get; } 
 
         void Commit();
-
 
     }
 }

@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{BB97
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{551C1D0B-F6DD-4206-A5CB-7F81E7EE16E2}"
 EndProject
-Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "NeuCMS.Database", "NeuCMS.Database\NeuCMS.Database.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Core", "NeuCMS.Core\NeuCMS.Core.csproj", "{9658EE6C-288D-4A52-95BE-F952406A7474}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS", "NeuCMS\NeuCMS.csproj", "{5F046414-A56A-4185-8270-8573E1B05ABE}"
@@ -21,6 +19,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Repositories.EmbeddedRavenDB", "NeuCMS.Repositories.EmbeddedRavenDB\NeuCMS.Repositories.EmbeddedRavenDB.csproj", "{1A423178-6075-4A27-8E40-9CCDA7CC33B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Repositories.EmbeddedRavenDB.Tests", "NeuCMS.Repositories.EmbeddedRavenDB.Tests\NeuCMS.Repositories.EmbeddedRavenDB.Tests.csproj", "{4979F39A-0C17-4170-9DE9-31F103C08351}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EEB977E3-3C79-4E64-8FAA-F4715D5B4A23}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,11 +40,6 @@ Global
 		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{9658EE6C-288D-4A52-95BE-F952406A7474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9658EE6C-288D-4A52-95BE-F952406A7474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9658EE6C-288D-4A52-95BE-F952406A7474}.Release|Any CPU.ActiveCfg = Release|Any CPU
