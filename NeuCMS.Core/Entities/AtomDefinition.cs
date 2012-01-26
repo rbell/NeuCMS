@@ -1,4 +1,6 @@
-﻿namespace NeuCMS.Core.Entities
+﻿using System.Collections.Generic;
+
+namespace NeuCMS.Core.Entities
 {
     public class AtomDefinition : IEntity
     {
@@ -14,5 +16,7 @@
         /// The value of Name can only be defined once for a given NameSpace
         /// </summary>
         public string NameSpace { get; set; }
+
+        private List<ContentMetadataDefinition> metadataDefinition { get; set; }
     }
 }
