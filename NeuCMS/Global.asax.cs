@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NeuCMS.Core.Repositories;
+using NeuCMS.Repositories.EmbeddedRavenDB;
 
 namespace NeuCMS
 {
@@ -35,6 +37,8 @@ namespace NeuCMS
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        	new RepositoryFactory().UseEmbeddedRavenDB();
+
         }
     }
 }

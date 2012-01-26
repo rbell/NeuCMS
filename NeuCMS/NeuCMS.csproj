@@ -166,6 +166,10 @@
       <Project>{9658EE6C-288D-4A52-95BE-F952406A7474}</Project>
       <Name>NeuCMS.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NeuCMS.Repositories.EmbeddedRavenDB\NeuCMS.Repositories.EmbeddedRavenDB.csproj">
+      <Project>{1A423178-6075-4A27-8E40-9CCDA7CC33B5}</Project>
+      <Name>NeuCMS.Repositories.EmbeddedRavenDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
