@@ -5,11 +5,21 @@
     {
         public ContentQueryResults QueryContent(ContentQueryCriteria criteria)
         {
-            return new ContentQueryResults()
-                       {
-                           new ContentQueryResult() {ContentKey = "Message", Content = "Welcome to ASP.NET MVC!!!!"},
-                           new ContentQueryResult() {ContentKey = "Image", Content = "http://localhost:17255/Assets/Asset?id=Test"}
-                       };
+		
+        	var repository = new RepositoryFactory().ContentRepository();
+
+        	var atoms =
+        		(from atom in repository.Atoms
+				 where atom.NameSpace == "NeuCMS.Samples"
+        		 select atom);
+
+        	var results = new ContentQueryResults();
+        	foreach (var atom in atoms)
+        	{
+        		results.Add(new ContentQueryResult() {ContentKey = atom.Name, Content = atom.Content});
+        	}
+
+            return results;
         }
 
     }
