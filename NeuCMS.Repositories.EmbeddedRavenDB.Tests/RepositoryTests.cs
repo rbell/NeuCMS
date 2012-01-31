@@ -10,6 +10,7 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB.Tests
 	{
 		private IContentRepository _repository;
 
+		
 		[SetUp]
 		public void Setup()
 		{
