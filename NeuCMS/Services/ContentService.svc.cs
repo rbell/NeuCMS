@@ -8,6 +8,7 @@ namespace NeuCMS.Services
     {
         public ContentQueryResults QueryContent(string whereClause)
         {
+		
         	var repository = new RepositoryFactory().ContentRepository();
 
         	var atoms =
