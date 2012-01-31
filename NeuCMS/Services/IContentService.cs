@@ -7,6 +7,6 @@ namespace NeuCMS.Services
     public interface IContentService
     {
         [OperationContract]
-        ContentQueryResults QueryContent(string whereClause);
+        ContentQueryResults QueryContent(ContentQueryCriteria criteria);
     }
 }

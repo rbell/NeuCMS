@@ -3,7 +3,7 @@
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ContentService" in code, svc and config file together.
     public class ContentService : IContentService
     {
-        public ContentQueryResults QueryContent(string whereClause)
+        public ContentQueryResults QueryContent(ContentQueryCriteria criteria)
         {
             return new ContentQueryResults()
                        {
