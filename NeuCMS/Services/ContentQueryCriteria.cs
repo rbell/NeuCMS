@@ -24,11 +24,11 @@ namespace NeuCMS.Services
         private Expression<Func<Atom, bool>> buildExpression()
         {
             var atomParam = Expression.Parameter(typeof (Atom), "a");
-            var boolParam = Expression.Parameter(typeof (bool), "result");
+            //var boolParam = Expression.Parameter(typeof (bool), "result");
             var nameConstant = Expression.Constant(NameSpace);
-            var nameMember = MemberExpression.Property(atomParam as Expression, "Name");
+            var nameMember = MemberExpression.Property(atomParam as Expression, "NameSpace");
             var equalExp = BinaryExpression.Equal(nameMember, nameConstant);
-            return Expression.Lambda<Func<Atom, bool>>(equalExp, new ParameterExpression[] {atomParam, boolParam});
+            return Expression.Lambda<Func<Atom, bool>>(equalExp, new ParameterExpression[] {atomParam});
         }
 
     }

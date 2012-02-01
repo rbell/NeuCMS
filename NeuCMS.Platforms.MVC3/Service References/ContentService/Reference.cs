@@ -15,6 +15,144 @@ namespace NeuCMS.Platforms.MVC3.ContentService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContentQueryCriteria", Namespace="http://schemas.datacontract.org/2004/07/NeuCMS.Services")]
+    [System.SerializableAttribute()]
+    public partial class ContentQueryCriteria : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<NeuCMS.Platforms.MVC3.ContentService.MetadataCriteria> MetadataCriteriaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameSpaceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<NeuCMS.Platforms.MVC3.ContentService.MetadataCriteria> MetadataCriteria {
+            get {
+                return this.MetadataCriteriaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetadataCriteriaField, value) != true)) {
+                    this.MetadataCriteriaField = value;
+                    this.RaisePropertyChanged("MetadataCriteria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NameSpace {
+            get {
+                return this.NameSpaceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameSpaceField, value) != true)) {
+                    this.NameSpaceField = value;
+                    this.RaisePropertyChanged("NameSpace");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MetadataCriteria", Namespace="http://schemas.datacontract.org/2004/07/NeuCMS.Services")]
+    [System.SerializableAttribute()]
+    public partial class MetadataCriteria : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MetaDataNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MetaDataValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MetaDataName {
+            get {
+                return this.MetaDataNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetaDataNameField, value) != true)) {
+                    this.MetaDataNameField = value;
+                    this.RaisePropertyChanged("MetaDataName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MetaDataValue {
+            get {
+                return this.MetaDataValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MetaDataValueField, value) != true)) {
+                    this.MetaDataValueField = value;
+                    this.RaisePropertyChanged("MetaDataValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ContentQueryResults", Namespace="http://schemas.datacontract.org/2004/07/NeuCMS.Services")]
     [System.SerializableAttribute()]
     public partial class ContentQueryResults : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -124,7 +262,7 @@ namespace NeuCMS.Platforms.MVC3.ContentService {
     public interface IContentService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContentService/QueryContent", ReplyAction="http://tempuri.org/IContentService/QueryContentResponse")]
-        NeuCMS.Platforms.MVC3.ContentService.ContentQueryResults QueryContent(string whereClause);
+        NeuCMS.Platforms.MVC3.ContentService.ContentQueryResults QueryContent(NeuCMS.Platforms.MVC3.ContentService.ContentQueryCriteria criteria);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -154,8 +292,8 @@ namespace NeuCMS.Platforms.MVC3.ContentService {
                 base(binding, remoteAddress) {
         }
         
-        public NeuCMS.Platforms.MVC3.ContentService.ContentQueryResults QueryContent(string whereClause) {
-            return base.Channel.QueryContent(whereClause);
+        public NeuCMS.Platforms.MVC3.ContentService.ContentQueryResults QueryContent(NeuCMS.Platforms.MVC3.ContentService.ContentQueryCriteria criteria) {
+            return base.Channel.QueryContent(criteria);
         }
     }
 }
