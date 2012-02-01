@@ -6,4 +6,4 @@ bin
 release
 *.suo
 *.user
-/NeuCMS.Repositories.EmbeddedRavenDB/obj
+Data
