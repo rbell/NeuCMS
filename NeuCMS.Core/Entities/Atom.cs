@@ -1,4 +1,6 @@
-﻿namespace NeuCMS.Core.Entities
+﻿using System.Collections.Generic;
+
+namespace NeuCMS.Core.Entities
 {
     public class Atom : Content
     {
@@ -16,5 +18,8 @@
         /// The Content of the Atom
         /// </summary>
         public string Content { get; set; }
+
+        private List<ContentMetadata> MetaData { get; set; }
+
     }
 }

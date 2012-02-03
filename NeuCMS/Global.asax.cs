@@ -37,8 +37,7 @@ namespace NeuCMS
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
-        	new RepositoryFactory().UseEmbeddedRavenDB();
-
+            new RepositoryFactory().UseEmbeddedRavenDB();
         }
     }
 }

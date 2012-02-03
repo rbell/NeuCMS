@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Services\ContentQueryCriteria.cs" />
     <Compile Include="Services\ContentQueryResults.cs" />
     <Compile Include="Services\ContentService.svc.cs">
       <DependentUpon>ContentService.svc</DependentUpon>
