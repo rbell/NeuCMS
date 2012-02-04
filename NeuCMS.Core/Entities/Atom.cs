@@ -19,7 +19,7 @@ namespace NeuCMS.Core.Entities
         /// </summary>
         public string Content { get; set; }
 
-        private List<ContentMetadata> MetaData { get; set; }
+        public List<ContentMetadata> MetaData { get; set; }
 
     }
 }
