@@ -85,6 +85,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\header-bg.png" />
+    <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\Test.jpg" />
     <Content Include="Dynamic Expressions.html" />
     <Content Include="Services\ContentService.svc" />
@@ -133,7 +136,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\OriginalSite.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
