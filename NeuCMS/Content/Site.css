@@ -1,16 +1,20 @@
-﻿body {
+﻿body
+{
 }
 
-.neucms-panel-header {
+.neucms-panel-header
+{
+	color: white;
 	background-color: #2f2f2f;
 	height: 25px;
-	padding: 12px 12px 10px 12px;
+	padding: 0px 10px 1px 10px;
 	font-size: 14px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
 
-.neucms-header {
+.neucms-header
+{
 	background-color: #2f2f2f;
 	position: absolute;
 	height: 60px;
@@ -22,8 +26,128 @@
 	background-image: url('images/header-bg.png');
 	background-repeat: repeat-x;
 	padding-top: 20px;
+	z-index: 1;
 }
 
-.neucms-logo {
-	
+.neucms-logo
+{
+}
+
+.neucms-sidebar-bg
+{
+	left: 0;
+	background-color: #2f2f2f;
+	width: 200px;
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+#neucms-sidebar
+{
+	width: 200px;
+	padding-top: 90px;
+	z-index: 1;
+	position: relative;
+}
+
+#neucms-navigation
+{
+}
+
+#neucms-navigation ul
+{
+	font-size: 90%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+	width: 200px;
+}
+
+#neucms-navigation ul li
+{
+	position: relative;
+	padding-bottom: 2px;
+}
+
+#neucms-navigation ul li a, #neucms-navigation ul li span
+{
+	padding: 11px 48px 11px 40px;
+	line-height: 20px;
+	outline: none;
+	display: block;
+	text-decoration: none;
+	margin-left: 10px;
+	margin-right: 16px;
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+
+#neucms-navigation ul li ul
+{
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#neucms-navigation ul li ul li a, #neucms-navigation ul li ul li span
+{
+	display: block;
+	font-size: 12px;
+	padding: 4px 0 4px 40px;
+	text-shadow: none;
+}
+
+#neucms-navigation ul ul ul
+{
+	display: block;
+}
+
+#neucms-content
+{
+	margin-left: 200px;
+	padding-top: 100px;
+	min-height: 100%;
+}
+
+.neucms-container
+{
+	float: left;
+	margin: 0 4%;
+	padding-bottom: 52px;
+	width: 92%;
+}
+
+.active
+{
+	color: #D42D2D;
+}
+
+.inactive
+{
+	color: white;
+}
+
+.icon-home
+{
+	background-image: url('images/home.png');
+}
+
+.icon-content
+{
+	background-image: url('images/content.png');
+}
+
+.icon-configure
+{
+	background-image: url('images/configure.png');
+}
+
+.icon-administration
+{
+	background-image: url('images/administration.png');
 }

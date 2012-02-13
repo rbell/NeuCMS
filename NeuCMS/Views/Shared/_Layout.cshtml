@@ -6,6 +6,28 @@
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+    <script language="javascript">
+        jQuery(document).ready(function ($) {
+            // Accordion
+            $('#neucms-navigation > ul > li > a.expanded + ul').slideToggle('medium');
+            $('#neucms-navigation > ul > li > a').click(function () {
+                $('#neucms-navigation > ul> li > a.expanded').not(this).toggleClass('expanded').toggleClass('collapsed').parent().find('> ul').slideToggle('medium');
+                $(this).toggleClass('expanded').toggleClass('collapsed').parent().find('> ul').slideToggle('medium');
+            });
+
+            $('#neucms-navigation a').click(function () {
+                if ($(this).parent().has('ul').size() == 0) {
+                    $('#neucms-navigation a.active').toggleClass('active').toggleClass('inactive');
+                    $(this).toggleClass('inactive').toggleClass('active');
+                }
+            });
+
+            $("#neucms-navigation a[href='@Request.Path']").toggleClass('inactive').toggleClass('active');
+            if ($("#neucms-navigation a[href='@Request.Path']").parents('li').size() > 1) {
+                $("#neucms-navigation a[href='@Request.Path']").parent().parent().parent().children('a').toggleClass('expanded').toggleClass('collapsed').parent().find('> ul').show();
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="page">
@@ -18,8 +40,32 @@
                 </div>
             </div>
         </header>
-        <section id="main">
-            <div>
+        <section class="neucms-sidebar-bg">
+            <div id="neucms-sidebar">
+                <div id="neucms-navigation">
+                    <ul>
+                        <li><a href="@Url.Content("~")" class="icon-home inactive">Home</a></li>
+                        <li><a href="#" class="icon-content collapsed inactive">Content</a>
+                            <ul>
+                                <li><a href="@Url.Content("~/Atoms")" class="inactive">Content Atoms</a></li>
+                                <li><a href="@Url.Content("~/Assets")" class="inactive">Assets</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="icon-configure collapsed inactive">Configure</a>
+                            <ul>
+                                <li><a href="@Url.Content("~/NameSpaces")" class="inactive">NameSpaces</a></li>
+                                <li><a href="@Url.Content("~/Pages")" class="inactive">Pages</a></li>
+                                <li><a href="@Url.Content("~/Dimensions")" class="inactive">Dimensions</a></li>
+                                <li><a href="@Url.Content("~/MetaData")" class="inactive">Meta Data</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="icon-administration  inactive">Administration</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="neucms-content">
+            <div  class="neucms-container">
                 @RenderBody()
             </div>
         </section>
