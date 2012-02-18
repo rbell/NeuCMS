@@ -52,7 +52,7 @@
     <Compile Include="Entities\ContentMetadataDefinition.cs" />
     <Compile Include="Entities\ContentNameSpace.cs" />
     <Compile Include="Entities\Dimension.cs" />
-    <Compile Include="Entities\DimentionDefinition.cs" />
+    <Compile Include="Entities\DimensionDefinition.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\ContentMetadata.cs" />
     <Compile Include="Entities\Page.cs" />
