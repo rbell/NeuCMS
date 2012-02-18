@@ -40,6 +40,31 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB
             get { return _context.ObjectSet<Atom>(); }
 	    }
 
+	    public IObjectSet<ContentNameSpace> ContentNameSpaces
+	    {
+            get { return _context.ObjectSet<ContentNameSpace>(); }
+        }
+
+	    public IObjectSet<Page> Pages
+	    {
+            get { return _context.ObjectSet<Page>(); }
+        }
+
+        public IObjectSet<ContentMetadataDefinition> ContentMetadataDefinitions
+	    {
+            get { return _context.ObjectSet<ContentMetadataDefinition>(); }
+        }
+
+	    public IObjectSet<DimensionDefinition> DimentionDefinitions
+	    {
+            get { return _context.ObjectSet<DimensionDefinition>(); }
+        }
+
+	    public IObjectSet<AtomDefinition> AtomDefinitions
+	    {
+            get { return _context.ObjectSet<AtomDefinition>(); }
+        }
+
 	    public void Commit()
 		{
 			_context.Save();

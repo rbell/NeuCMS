@@ -4,10 +4,14 @@ namespace NeuCMS.Core.Entities
 {
     public class Atom : Content
     {
+        public string AtomDefinitionId { get; set; }
+
         /// <summary>
         /// Name of this Atom
         /// </summary>
         public string Name { get; set; }
+
+        public string NamespaceId { get; set; }
 
         /// <summary>
         /// NameSpace for the Atom.  For instance the name of the application this content is used in.
