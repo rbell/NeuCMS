@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using NeuCMS.Core.Entities;
 using NeuCMS.Core.Repositories;
@@ -37,7 +38,21 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB.Tests
         public void AddTestData()
         {
             var nameSpace = "NeuCMS.Samples";
-            _repository.Atoms.AddObject(new Atom() { Content = "This is fun!", Name = "Message", NameSpace = nameSpace });
+            _repository.Atoms.AddObject(new Atom()
+                                            {
+                                                Content = "This is fun!",
+                                                Name = "Message",
+                                                NameSpace = nameSpace,
+                                                Pages = new List<string>(){"Home"},
+                                                Dimensions = new List<Dimension>()
+                                                                 {
+                                                                     new Dimension()
+                                                                         {
+                                                                             DimensionName = "Language",
+                                                                             DimensionValue = "English"
+                                                                         }
+                                                                 }
+                                            });
             _repository.Commit();
 
             var atoms =

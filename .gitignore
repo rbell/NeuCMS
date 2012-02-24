@@ -7,3 +7,4 @@ release
 *.suo
 *.user
 Data
+*.DS_*

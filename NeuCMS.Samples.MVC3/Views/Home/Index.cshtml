@@ -1,5 +1,7 @@
 ﻿@{
-    NeuCMS.Platforms.MVC3.ContentManger.InitContent(ViewBag);
+    var dimensions = new Dictionary<string, string>();
+    dimensions.Add("Language", "English");
+    NeuCMS.Platforms.MVC3.ContentManger.InitContent(ViewBag, "NeuCMS.Samples", "Home", dimensions);
 }
 
 <h2>@ViewBag.NeuContent.Message</h2>

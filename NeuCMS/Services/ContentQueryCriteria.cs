@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.Serialization;
 using NeuCMS.Core.Entities;
 
@@ -14,6 +16,12 @@ namespace NeuCMS.Services
 
         [DataMember]
         public string NameSpace { get; set; }
+
+        [DataMember]
+        public List<string> Pages { get; set; }
+
+        [DataMember]
+        public List<DimensionCriteria> Dimensions { get; set; }
 
         [DataMember]
         public List<MetadataCriteria> MetadataCriteria { get; set; }
@@ -40,30 +48,53 @@ namespace NeuCMS.Services
             if (!string.IsNullOrWhiteSpace(Name))
             {
                 var nameEqualExp = propertyEqualEqualConst(atomParam, "Name", Name);
-                whereExp = BinaryExpression.Add(whereExp, nameEqualExp);
+                whereExp = BinaryExpression.And(whereExp, nameEqualExp);
             }
 
-            // Add in criteria for metadata
-            if (MetadataCriteria != null)
+            // Add in criteria of Pages
+            if (Pages != null)
             {
-                foreach (var metadataCriterion in MetadataCriteria)
+                foreach (var page in Pages)
                 {
-                    // TODO: Add And Expression for metadataCriterion to whereExp
-                    if (!string.IsNullOrWhiteSpace(metadataCriterion.MetaDataName) &&
-                        !string.IsNullOrWhiteSpace(metadataCriterion.MetaDataValue))
+                    if (!string.IsNullOrWhiteSpace(page))
                     {
-                        Expression<Func<Atom, bool>> metaExpression =
-                            a =>
-                            a.MetaData.Contains(new ContentMetadata()
-                                                    {
-                                                        Name = metadataCriterion.MetaDataName,
-                                                        Value = metadataCriterion.MetaDataValue
-                                                    });
-                        whereExp = BinaryExpression.Add(whereExp, metaExpression);
+                        PropertyInfo propertyInfo = typeof(Atom).GetProperty("Pages");
+                        MemberExpression m = Expression.MakeMemberAccess(atomParam, propertyInfo);
+                        ConstantExpression c = Expression.Constant(page, typeof(string));
+                        MethodInfo mi = typeof(List<string>).GetMethod("Contains", new Type[] { typeof(string) });
+                        var e1 = Expression.Call(m, mi, c); 
+
+                        whereExp = BinaryExpression.And(whereExp, e1);
                     }
                 }
-
             }
+
+            // Add in criteria for dimensions
+            if (Dimensions != null)
+            {
+                foreach (var dimensionCriteria in Dimensions)
+                {
+                    // TODO: Add And Expression for metadataCriterion to whereExp
+                    if (!string.IsNullOrWhiteSpace(dimensionCriteria.DimensionName) &&
+                        !string.IsNullOrWhiteSpace(dimensionCriteria.DimensionValue))
+                    {
+                        PropertyInfo propertyInfo = typeof(Atom).GetProperty("Dimensions");
+                        MemberExpression m = Expression.MakeMemberAccess(atomParam, propertyInfo);
+                        var d = new Dimension()
+                                    {
+                                        DimensionName = dimensionCriteria.DimensionName,
+                                        DimensionValue = dimensionCriteria.DimensionValue
+                                    };
+                        ConstantExpression c = Expression.Constant(d, typeof(Dimension));
+                        MethodInfo mi = typeof(List<Dimension>).GetMethod("Contains", new Type[] { typeof(Dimension) });
+                        var e1 = Expression.Call(m, mi, c);
+
+                        whereExp = BinaryExpression.And(whereExp, e1);
+                    }
+                }
+            }
+
+            // TODO: Add criteria for metadata
 
             // Convert the Expression to a Lambda Expression
             return Expression.Lambda<Func<Atom, bool>>(whereExp, new ParameterExpression[] { atomParam });
@@ -77,6 +108,15 @@ namespace NeuCMS.Services
             return equalExp;
         }
 
+    }
+
+    [DataContract]
+    public class DimensionCriteria
+    {
+        [DataMember]
+        public string DimensionName { get; set; }
+        [DataMember]
+        public string DimensionValue { get; set; }
     }
 
     [DataContract]

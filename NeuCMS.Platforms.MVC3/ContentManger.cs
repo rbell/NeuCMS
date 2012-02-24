@@ -9,10 +9,21 @@ namespace NeuCMS.Platforms.MVC3
 {
     public static class ContentManger
     {
-        public static void InitContent(dynamic viewBag)
+        public static void InitContent(dynamic viewBag, string nameSpace, string page, Dictionary<string, string> dimensions)
         {
             var client = ServiceClientFactory.CreateClient();
-            var content = client.QueryContent(new ContentQueryCriteria() { NameSpace = "NeuCMS.Samples" });
+            var content = client.QueryContent(new ContentQueryCriteria()
+                                                  {
+                                                      NameSpace = nameSpace,
+                                                      Pages = new List<string>() {page},
+                                                      Dimensions = (from KeyValuePair<string, string> d in dimensions
+                                                                    select
+                                                                        new DimensionCriteria()
+                                                                            {
+                                                                                DimensionName = d.Key,
+                                                                                DimensionValue = d.Value
+                                                                            }).ToList()
+                                                  });
             dynamic neuCMSContent = new NeuCMSContent(content);
             viewBag.NeuContent = neuCMSContent;
         }

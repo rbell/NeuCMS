@@ -23,6 +23,9 @@ namespace NeuCMS.Platforms.MVC3.ContentService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<NeuCMS.Platforms.MVC3.ContentService.DimensionCriteria> DimensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.List<NeuCMS.Platforms.MVC3.ContentService.MetadataCriteria> MetadataCriteriaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -31,6 +34,9 @@ namespace NeuCMS.Platforms.MVC3.ContentService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameSpaceField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<string> PagesField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -38,6 +44,19 @@ namespace NeuCMS.Platforms.MVC3.ContentService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<NeuCMS.Platforms.MVC3.ContentService.DimensionCriteria> Dimensions {
+            get {
+                return this.DimensionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionsField, value) != true)) {
+                    this.DimensionsField = value;
+                    this.RaisePropertyChanged("Dimensions");
+                }
             }
         }
         
@@ -76,6 +95,80 @@ namespace NeuCMS.Platforms.MVC3.ContentService {
                 if ((object.ReferenceEquals(this.NameSpaceField, value) != true)) {
                     this.NameSpaceField = value;
                     this.RaisePropertyChanged("NameSpace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<string> Pages {
+            get {
+                return this.PagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PagesField, value) != true)) {
+                    this.PagesField = value;
+                    this.RaisePropertyChanged("Pages");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DimensionCriteria", Namespace="http://schemas.datacontract.org/2004/07/NeuCMS.Services")]
+    [System.SerializableAttribute()]
+    public partial class DimensionCriteria : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DimensionNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DimensionValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DimensionName {
+            get {
+                return this.DimensionNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionNameField, value) != true)) {
+                    this.DimensionNameField = value;
+                    this.RaisePropertyChanged("DimensionName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DimensionValue {
+            get {
+                return this.DimensionValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DimensionValueField, value) != true)) {
+                    this.DimensionValueField = value;
+                    this.RaisePropertyChanged("DimensionValue");
                 }
             }
         }

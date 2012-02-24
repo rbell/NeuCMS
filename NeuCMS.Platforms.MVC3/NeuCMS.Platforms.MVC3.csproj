@@ -65,6 +65,9 @@
     <None Include="Service References\ContentService\ContentService.xsd" />
     <None Include="Service References\ContentService\ContentService1.xsd" />
     <None Include="Service References\ContentService\ContentService2.xsd" />
+    <None Include="Service References\ContentService\ContentService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ContentService\NeuCMS.Platforms.MVC3.ContentService.ContentQueryResults.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
