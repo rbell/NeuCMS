@@ -35,9 +35,9 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB
 			throw new NotImplementedException();
 		}
 
-	    public IObjectSet<Atom> Atoms
+	    public IObjectSet<ContentElement> Atoms
 	    {
-            get { return _context.ObjectSet<Atom>(); }
+            get { return _context.ObjectSet<ContentElement>(); }
 	    }
 
 	    public IObjectSet<ContentNameSpace> ContentNameSpaces
@@ -60,9 +60,9 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB
             get { return _context.ObjectSet<DimensionDefinition>(); }
         }
 
-	    public IObjectSet<AtomDefinition> AtomDefinitions
+	    public IObjectSet<ContentElementDefinition> AtomDefinitions
 	    {
-            get { return _context.ObjectSet<AtomDefinition>(); }
+            get { return _context.ObjectSet<ContentElementDefinition>(); }
         }
 
 	    public void Commit()

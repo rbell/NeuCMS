@@ -16,13 +16,13 @@ namespace NeuCMS.Core.Repositories
 
         void Dismantle();
 
-        IObjectSet<Atom> Atoms { get; }
+        IObjectSet<ContentElement> Atoms { get; }
 
         IObjectSet<ContentNameSpace> ContentNameSpaces { get; }
         IObjectSet<Page> Pages { get; } 
         IObjectSet<DimensionDefinition> DimentionDefinitions { get; }
         IObjectSet<ContentMetadataDefinition> ContentMetadataDefinitions { get; }
-        IObjectSet<AtomDefinition> AtomDefinitions { get; } 
+        IObjectSet<ContentElementDefinition> AtomDefinitions { get; } 
 
 
         void Commit();

@@ -26,18 +26,18 @@ namespace NeuCMS.Services
         [DataMember]
         public List<MetadataCriteria> MetadataCriteria { get; set; }
 
-        public Expression<Func<Atom, bool>> WhereExpression
+        public Expression<Func<ContentElement, bool>> WhereExpression
         {
             get { return buildExpression(); }
         }
 
-        private Expression<Func<Atom, bool>> buildExpression()
+        private Expression<Func<ContentElement, bool>> buildExpression()
         {
             // Build up an Expression of a Function that accepts an Atom and returns bool that
             // will be used as a "where" clause.
 
             // Define an parameter "a" that will be passed into function.
-            var atomParam = Expression.Parameter(typeof(Atom), "a");
+            var atomParam = Expression.Parameter(typeof(ContentElement), "a");
 
             Expression whereExp;
 
@@ -58,7 +58,7 @@ namespace NeuCMS.Services
                 {
                     if (!string.IsNullOrWhiteSpace(page))
                     {
-                        PropertyInfo propertyInfo = typeof(Atom).GetProperty("Pages");
+                        PropertyInfo propertyInfo = typeof(ContentElement).GetProperty("Pages");
                         MemberExpression m = Expression.MakeMemberAccess(atomParam, propertyInfo);
                         ConstantExpression c = Expression.Constant(page, typeof(string));
                         MethodInfo mi = typeof(List<string>).GetMethod("Contains", new Type[] { typeof(string) });
@@ -78,7 +78,7 @@ namespace NeuCMS.Services
                     if (!string.IsNullOrWhiteSpace(dimensionCriteria.DimensionName) &&
                         !string.IsNullOrWhiteSpace(dimensionCriteria.DimensionValue))
                     {
-                        PropertyInfo propertyInfo = typeof(Atom).GetProperty("Dimensions");
+                        PropertyInfo propertyInfo = typeof(ContentElement).GetProperty("Dimensions");
                         MemberExpression m = Expression.MakeMemberAccess(atomParam, propertyInfo);
                         var d = new Dimension()
                                     {
@@ -97,7 +97,7 @@ namespace NeuCMS.Services
             // TODO: Add criteria for metadata
 
             // Convert the Expression to a Lambda Expression
-            return Expression.Lambda<Func<Atom, bool>>(whereExp, new ParameterExpression[] { atomParam });
+            return Expression.Lambda<Func<ContentElement, bool>>(whereExp, new ParameterExpression[] { atomParam });
         }
 
         private BinaryExpression propertyEqualEqualConst(ParameterExpression atomParam, string property, object constVal)

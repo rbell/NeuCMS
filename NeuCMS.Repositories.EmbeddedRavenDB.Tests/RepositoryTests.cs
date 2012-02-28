@@ -20,7 +20,7 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB.Tests
         [Test]
         public void AddAtom_SavesAtom()
         {
-            _repository.Atoms.AddObject(new Atom() { Content = "This is a test", Name = "TestContent", NameSpace = "TestNamespace" });
+            _repository.Atoms.AddObject(new ContentElement() { Content = "This is a test", Name = "TestContent", NameSpace = "TestNamespace" });
             _repository.Commit();
 
             var testAtom =
@@ -38,7 +38,7 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB.Tests
         public void AddTestData()
         {
             var nameSpace = "NeuCMS.Samples";
-            _repository.Atoms.AddObject(new Atom()
+            _repository.Atoms.AddObject(new ContentElement()
                                             {
                                                 Content = "This is fun!",
                                                 Name = "Message",

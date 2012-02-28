@@ -2,7 +2,7 @@
 
 namespace NeuCMS.Core.Entities
 {
-    public class AtomDefinition : IEntity
+    public class ContentElementDefinition : IEntity
     {
         public string Id { get; set; }
 
