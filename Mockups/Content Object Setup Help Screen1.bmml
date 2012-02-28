@@ -1,0 +1,114 @@
+<mockup version="1.0" skin="sketch" measuredW="904" measuredH="465" mockupW="770" mockupH="436">
+  <controls>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="277" y="340" w="198" h="-1" measuredW="79" measuredH="27" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::RoundButton" x="134" y="375" w="32" h="32" measuredW="32" measuredH="32" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>24</size>
+        <text>+</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::RoundButton" x="134" y="337" w="32" h="32" measuredW="32" measuredH="32" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <size>24</size>
+        <text>-</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="173" y="380" w="126" h="21" measuredW="124" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Add%20a%20new%20Metadata</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="173" y="343" w="104" h="21" measuredW="101" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Metadata%20Name%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::RadioButton" x="489" y="342" w="55" h="22" measuredW="56" measuredH="22" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>selected</state>
+        <text>String</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::RadioButton" x="544" y="342" w="76" h="22" measuredW="76" measuredH="22" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Datetime</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::RadioButton" x="620" y="342" w="37" h="22" measuredW="37" measuredH="22" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Int</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::RadioButton" x="657" y="342" w="67" h="22" measuredW="67" measuredH="22" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Boolean</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Title" x="134" y="29" w="612" h="-1" measuredW="392" measuredH="50" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>left</align>
+        <text>Content%20Object%20Setup</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Paragraph" x="134" y="141" w="590" h="92" measuredW="200" measuredH="140" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20first%20step%20is%20to%20determine%20what%20you%20want%20to%20call%20your%20object.%20What%20you%20intend%20to%20use%20the%20object%20for%20should%20guide%20your%20choice.%20For%20example%2C%20if%20this%20object%20will%20hold%20the%20body%20of%20a%20blog%20post%2C%20it%27s%20name%20could%20be%20called%20%22postBody%22.%20Another%20example%20could%20be%20if%20the%20object%20will%20be%20an%20audio%20file%2C%20it%27s%20name%20could%20be%20%22Song%22.%20Keep%20in%20mind%20you%27re%20not%20naming%20a%20single%20instance%20of%20the%20object%2C%20but%20declaring%20the%20name%20of%20the%20class%20of%20objects.%20This%20metadata%20value%20is%20always%20stored%20as%20a%20string.%0A%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::SubTitle" x="134" y="299" w="-1" h="-1" measuredW="185" measuredH="33" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Object%20Metadata</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::HelpButton" x="350" y="306" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="12" locked="false" isInGroup="-1"/>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="647" y="438" w="54" h="27" measuredW="54" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Save</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Button" x="574" y="438" w="64" h="27" measuredW="64" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Cancel</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::TextInput" x="219" y="90" w="217" h="-1" measuredW="79" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="134" y="93" w="-1" h="-1" measuredW="85" measuredH="21" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Object%20Name%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::HelpButton" x="457" y="94" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="17" locked="false" isInGroup="-1"/>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::RadioButton" x="206" y="248" w="59" h="22" measuredW="56" measuredH="22" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>String</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::RadioButton" x="269" y="248" w="45" h="22" measuredW="41" measuredH="22" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>selected</state>
+        <text>File</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="134" y="248" w="-1" h="-1" measuredW="70" measuredH="21" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Object%20is%20a%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::HelpButton" x="335" y="250" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="21" locked="false" isInGroup="-1"/>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::VCurly" x="724" y="139" w="180" h="95" measuredW="180" measuredH="140" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Clicking%20on%20the%20%22%3F%22%20button%20causes%20help%20text%20to%20appear%20below%20the%20section%20via%20an%20accordion</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
