@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Atom.cs" />
-    <Compile Include="Entities\AtomDefinition.cs" />
     <Compile Include="Entities\Content.cs" />
+    <Compile Include="Entities\ContentElement.cs" />
+    <Compile Include="Entities\ContentElementDefinition.cs" />
     <Compile Include="Entities\ContentMetadataDefinition.cs" />
     <Compile Include="Entities\ContentNameSpace.cs" />
     <Compile Include="Entities\Dimension.cs" />
