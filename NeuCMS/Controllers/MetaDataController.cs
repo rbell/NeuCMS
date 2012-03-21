@@ -9,7 +9,7 @@ namespace NeuCMS.Controllers
     public class MetaDataController : Controller
     {
         //
-        // GET: /MetaData/
+        // GET: /MetaDataDefinition/
 
         public ActionResult Index()
         {

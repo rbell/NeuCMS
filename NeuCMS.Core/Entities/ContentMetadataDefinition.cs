@@ -1,12 +1,11 @@
 ﻿namespace NeuCMS.Core.Entities
 {
-    public class ContentMetadataDefinition : IEntity
+    public class ContentMetadataDefinition
     {
-        public string Id { get; set; }
+        public int ContentMetadataDefinitionId { get; set; }
 
-        public string NamespaceId { get; set; }
-
-        public string NameSpace { get; set; }
+        public int ContentDefinitionId { get; set; }
+        public ContentDefinition ContentDefinition { get; set; }
 
         public string MetadataName { get; set; }
 

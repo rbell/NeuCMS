@@ -55,12 +55,12 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB
             get { return _context.ObjectSet<ContentMetadataDefinition>(); }
         }
 
-	    public IObjectSet<DimensionDefinition> DimentionDefinitions
+	    public IObjectSet<DimensionDefinition> DimensionDefinitions
 	    {
             get { return _context.ObjectSet<DimensionDefinition>(); }
         }
 
-	    public IObjectSet<ContentElementDefinition> AtomDefinitions
+	    public IObjectSet<ContentElementDefinition> ContentElementDefinitions
 	    {
             get { return _context.ObjectSet<ContentElementDefinition>(); }
         }

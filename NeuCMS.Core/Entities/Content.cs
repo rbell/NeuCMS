@@ -2,9 +2,12 @@
 
 namespace NeuCMS.Core.Entities
 {
-    public abstract class Content : IEntity
+    public abstract class Content
     {
-        public string Id { get; set; }
-        public List<ContentMetadata> ContentMetadata { get; set; }
+        public int ContentId { get; set; }
+
+        public ICollection<DimensionValue> Dimensions { get; set; }
+
+        public ICollection<ContentMetadataValue> ContentMetadata { get; set; }
     }
 }

@@ -44,9 +44,9 @@ namespace NeuCMS.Repositories.EmbeddedRavenDB.Tests
                                                 Name = "Message",
                                                 NameSpace = nameSpace,
                                                 Pages = new List<string>(){"Home"},
-                                                Dimensions = new List<Dimension>()
+                                                Dimensions = new List<DimensionValue>()
                                                                  {
-                                                                     new Dimension()
+                                                                     new DimensionValue()
                                                                          {
                                                                              DimensionName = "Language",
                                                                              DimensionValue = "English"

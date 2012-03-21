@@ -2,9 +2,9 @@
 {
     public class DimensionDefinition
     {
-        public string Id { get; set; }
+        public string DimensionDefinitionId { get; set; }
         public string NamespaceId { get; set; }
-        public string NameSpace { get; set; }
+        public NameSpace NameSpace { get; set; }
         public string DimensionName { get; set; }
     }
 }

@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using NeuCMS.Core.Repositories;
-using NeuCMS.Repositories.EmbeddedRavenDB;
 
 namespace NeuCMS
 {
