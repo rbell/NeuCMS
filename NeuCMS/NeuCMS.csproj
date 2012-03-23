@@ -39,6 +39,7 @@
     <Reference Include="Dynamic">
       <HintPath>..\packages\DynamicQuery.1.0\lib\35\Dynamic.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -176,6 +177,10 @@
     <ProjectReference Include="..\NeuCMS.Core\NeuCMS.Core.csproj">
       <Project>{9658EE6C-288D-4A52-95BE-F952406A7474}</Project>
       <Name>NeuCMS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NeuCMS.Repositories.EntityFramework_43\NeuCMS.Repositories.EntityFramework_43.csproj">
+      <Project>{465BA55F-F71B-4A46-96AD-5C66C2F9EB9F}</Project>
+      <Name>NeuCMS.Repositories.EntityFramework_43</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

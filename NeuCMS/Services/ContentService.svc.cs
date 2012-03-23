@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using NeuCMS.Core.Entities;
 using NeuCMS.Core.Repositories;
 
 namespace NeuCMS.Services
@@ -10,12 +11,12 @@ namespace NeuCMS.Services
 		
         	var repository = new RepositoryFactory().ContentRepository();
 
-            var atoms = repository.Atoms.Where(criteria.WhereExpression);
+            var elements = repository.Contents.OfType<ElementContent>().Where(criteria.WhereExpression);
 
         	var results = new ContentQueryResults();
-        	foreach (var atom in atoms)
+        	foreach (var element in elements)
         	{
-        		results.Add(new ContentQueryResult() {ContentKey = atom.Name, Content = atom.Content});
+        		results.Add(new ContentQueryResult() {ContentKey = element.ContentElementDefinition.Name, Content = element.Content});
         	}
 
             return results;

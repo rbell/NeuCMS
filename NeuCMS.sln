@@ -17,6 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Repositories.EntityF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Repositories.EntityFramework.Tests", "NeuCMS.Repositories.EntityFramework.Tests\NeuCMS.Repositories.EntityFramework.Tests.csproj", "{ED5F007B-6977-4333-9BE8-89B6661FE9EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Platforms.MVC3", "NeuCMS.Platforms.MVC3\NeuCMS.Platforms.MVC3.csproj", "{DE353188-E847-4A59-A0EE-9354B709A28B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Samples.MVC3", "NeuCMS.Samples.MVC3\NeuCMS.Samples.MVC3.csproj", "{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS", "NeuCMS\NeuCMS.csproj", "{5F046414-A56A-4185-8270-8573E1B05ABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuCMS.Repositories.EmbeddedRavenDB", "NeuCMS.Repositories.EmbeddedRavenDB\NeuCMS.Repositories.EmbeddedRavenDB.csproj", "{1A423178-6075-4A27-8E40-9CCDA7CC33B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,8 +43,28 @@ Global
 		{ED5F007B-6977-4333-9BE8-89B6661FE9EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED5F007B-6977-4333-9BE8-89B6661FE9EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED5F007B-6977-4333-9BE8-89B6661FE9EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE353188-E847-4A59-A0EE-9354B709A28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE353188-E847-4A59-A0EE-9354B709A28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE353188-E847-4A59-A0EE-9354B709A28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE353188-E847-4A59-A0EE-9354B709A28B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F046414-A56A-4185-8270-8573E1B05ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F046414-A56A-4185-8270-8573E1B05ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F046414-A56A-4185-8270-8573E1B05ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F046414-A56A-4185-8270-8573E1B05ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A423178-6075-4A27-8E40-9CCDA7CC33B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A423178-6075-4A27-8E40-9CCDA7CC33B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A423178-6075-4A27-8E40-9CCDA7CC33B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A423178-6075-4A27-8E40-9CCDA7CC33B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2117FC0-7126-4AF6-9AF4-0A07283B27F9} = {BB974DCE-C74C-4995-82B7-8F835A37C609}
+		{DE353188-E847-4A59-A0EE-9354B709A28B} = {551C1D0B-F6DD-4206-A5CB-7F81E7EE16E2}
 	EndGlobalSection
 EndGlobal

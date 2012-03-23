@@ -37,17 +37,17 @@ namespace NeuCMS.Services
             // will be used as a "where" clause.
 
             // Define an parameter "a" that will be passed into function.
-            var atomParam = Expression.Parameter(typeof(ElementContent), "a");
+            var elementParam = Expression.Parameter(typeof(ElementContent), "e");
 
             Expression whereExp;
 
             // Start with a.NameSpace = NameSpace
-            whereExp = propertyEqualEqualConst(atomParam, "NameSpace", NameSpace);
+            whereExp = propertyEqualEqualConst(elementParam, "NameSpace", NameSpace);
 
             // Add "&& a.Name = Name" to function if this.Name is specified.
             if (!string.IsNullOrWhiteSpace(Name))
             {
-                var nameEqualExp = propertyEqualEqualConst(atomParam, "Name", Name);
+                var nameEqualExp = propertyEqualEqualConst(elementParam, "Name", Name);
                 whereExp = BinaryExpression.And(whereExp, nameEqualExp);
             }
 
@@ -59,7 +59,7 @@ namespace NeuCMS.Services
                     if (!string.IsNullOrWhiteSpace(page))
                     {
                         PropertyInfo propertyInfo = typeof(ElementContent).GetProperty("Pages");
-                        MemberExpression m = Expression.MakeMemberAccess(atomParam, propertyInfo);
+                        MemberExpression m = Expression.MakeMemberAccess(elementParam, propertyInfo);
                         ConstantExpression c = Expression.Constant(page, typeof(string));
                         MethodInfo mi = typeof(List<string>).GetMethod("Contains", new Type[] { typeof(string) });
                         var e1 = Expression.Call(m, mi, c); 
@@ -79,7 +79,7 @@ namespace NeuCMS.Services
                         !string.IsNullOrWhiteSpace(dimensionCriteria.DimensionValue))
                     {
                         PropertyInfo propertyInfo = typeof(ElementContent).GetProperty("Dimensions");
-                        MemberExpression m = Expression.MakeMemberAccess(atomParam, propertyInfo);
+                        MemberExpression m = Expression.MakeMemberAccess(elementParam, propertyInfo);
                         var d = new DimensionValue()
                                     {
                                         DimensionName = dimensionCriteria.DimensionName,
@@ -97,7 +97,7 @@ namespace NeuCMS.Services
             // TODO: Add criteria for metadata
 
             // Convert the Expression to a Lambda Expression
-            return Expression.Lambda<Func<ElementContent, bool>>(whereExp, new ParameterExpression[] { atomParam });
+            return Expression.Lambda<Func<ElementContent, bool>>(whereExp, new ParameterExpression[] { elementParam });
         }
 
         private BinaryExpression propertyEqualEqualConst(ParameterExpression atomParam, string property, object constVal)
