@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Data.Services.Common;
 
 namespace NeuCMS.Core.Entities
 {
+    [DataServiceKey("Id")]
     public class NameSpace
     {
-        public int NameSpaceId { get; set; }
-        public string NamespaceDefinitionId { get; set; }
+        public int Id { get; set; }
         public string NameSpaceName { get; set; }
         public string Description { get; set; }
-        public ICollection<DimensionDefinition> DiminsionDefinitions { get; set; }
-        public ICollection<View> Views { get; set; }
+        public virtual List<DimensionDefinition> DiminsionDefinitions { get; set; }
+        public virtual List<View> Views { get; set; }
     }
 }

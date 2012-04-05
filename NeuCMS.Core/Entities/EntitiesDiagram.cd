@@ -3,14 +3,14 @@
   <Class Name="NeuCMS.Core.Entities.NameSpace">
     <Position X="10.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAgIAAAAAAIAAQAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgACAAAAAAAgIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\NameSpace.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeuCMS.Core.Entities.View">
     <Position X="13.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAABAAAAAAAAAgACAA=</HashCode>
+      <HashCode>AAACQAAQAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAACAA=</HashCode>
       <FileName>Entities\View.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -20,45 +20,41 @@
   <Class Name="NeuCMS.Core.Entities.ContentDefinition">
     <Position X="13.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AgACAAAAAAAAAAAAQAAAAAQAAAAAAAAAAAAAAQAACAA=</HashCode>
       <FileName>Entities\ContentDefinition.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="NeuCMS.Core.Entities.ElementContentDefinition">
-    <Position X="11.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Entities\ElementContentDefinition.cs</FileName>
-    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Views" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="NeuCMS.Core.Entities.Content">
     <Position X="7" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAQAAAAAIAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAQAAEAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\Content.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="NeuCMS.Core.Entities.ElementContent">
-    <Position X="8.25" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAgCAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Entities\ElementContent.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="ContentElementDefinition" />
     </ShowAsAssociation>
   </Class>
+  <Class Name="NeuCMS.Core.Entities.ElementContent">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ElementContent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="NeuCMS.Core.Entities.ContentMetadataDefinition">
     <Position X="7.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAABAAAAAAAAAAAEAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACQAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\ContentMetadataDefinition.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeuCMS.Core.Entities.ContentMetadataValue">
     <Position X="4.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAQAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAQAAAAA=</HashCode>
       <FileName>Entities\ContentMetadataValue.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -68,7 +64,7 @@
   <Class Name="NeuCMS.Core.Entities.DimensionDefinition">
     <Position X="10.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAQCAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Entities\DimensionDefinition.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -78,59 +74,25 @@
   <Class Name="NeuCMS.Core.Entities.DimensionValue">
     <Position X="4.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAIgAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Entities\DimensionValue.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="NeuCMS.Core.Entities.MediaContent">
     <Position X="6" Y="2.75" Width="1.5" />
-    <AssociationLine Name="MediaContentDefinition" Type="NeuCMS.Core.Entities.MediaContentDefinition" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6.75" Y="3.983" />
-        <Point X="6.75" Y="4.367" />
-        <Point X="14.312" Y="4.367" />
-        <Point X="14.312" Y="4.117" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAACAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entities\MediaContent.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="MediaContentDefinition" />
       <Property Name="DigitalAsset" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="NeuCMS.Core.Entities.MediaContentDefinition">
-    <Position X="13.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>Entities\MediaContentDefinition.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="NeuCMS.Core.Entities.DigitalAsset">
     <Position X="4" Y="2.75" Width="1.5" />
-    <AssociationLine Name="DigitalAssetDefinition" Type="NeuCMS.Core.Entities.DigitalAssetDefinition" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.688" Y="3.853" />
-        <Point X="4.688" Y="4.546" />
-        <Point X="16.5" Y="4.546" />
-        <Point X="16.5" Y="3.733" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Entities\DigitalAsset.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="DigitalAssetDefinition" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="NeuCMS.Core.Entities.DigitalAssetDefinition">
-    <Position X="15.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
-      <FileName>Entities\DigitalAssetDefinition.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

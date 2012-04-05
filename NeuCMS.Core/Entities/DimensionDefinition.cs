@@ -1,10 +1,13 @@
-﻿namespace NeuCMS.Core.Entities
+﻿using System.Data.Services.Common;
+
+namespace NeuCMS.Core.Entities
 {
+    [DataServiceKey("Id")]
     public class DimensionDefinition
     {
-        public string DimensionDefinitionId { get; set; }
+        public int Id { get; set; }
         public string NamespaceId { get; set; }
-        public NameSpace NameSpace { get; set; }
+        public virtual NameSpace NameSpace { get; set; }
         public string DimensionName { get; set; }
     }
 }

@@ -1,17 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Data.Services.Common;
 
 namespace NeuCMS.Core.Entities
 {
-    public abstract class ContentDefinition
+    [DataServiceKey("Id")]
+    public class ContentDefinition
     {
-        public int ContentDefinitionId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Name of the Atom that we are defining.  For instance "LoginLabel".
         /// </summary>
         public string Name { get; set; }
 
-        public ICollection<NeuCMS.Core.Entities.ContentMetadataDefinition> MetaDataDefinition { get; set; }
+        public virtual NameSpace NameSpace { get; set; }
 
+        public bool AvailableOnAllViews { get; set; }
+        public virtual List<View> Views { get; set; }
+        public virtual List<NeuCMS.Core.Entities.ContentMetadataDefinition> MetaDataDefinition { get; set; }
     }
 }

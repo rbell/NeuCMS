@@ -1,11 +1,14 @@
-﻿namespace NeuCMS.Core.Entities
+﻿using System.Data.Services.Common;
+
+namespace NeuCMS.Core.Entities
 {
+    [DataServiceKey("Id")]
     public class ContentMetadataDefinition
     {
-        public int ContentMetadataDefinitionId { get; set; }
+        public int Id { get; set; }
 
         public int ContentDefinitionId { get; set; }
-        public ContentDefinition ContentDefinition { get; set; }
+        public virtual ContentDefinition ContentDefinition { get; set; }
 
         public string MetadataName { get; set; }
 

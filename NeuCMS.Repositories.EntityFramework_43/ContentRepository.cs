@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Objects;
+using System.Linq;
 using NeuCMS.Core.Entities;
 using NeuCMS.Core.Repositories;
 
@@ -9,8 +10,31 @@ namespace NeuCMS.Repositories.EntityFramework_43
     public class ContentRepository : DbContext, IContentRepository
     {
         public ContentRepository()
-            : base("NeuCMSDB")
         {
+            ViewContents = from content in Contents.OfType<ElementContent>()
+                           select new ContentQueryResult()
+                           {
+                               Id = content.Id,
+                               Dimensions = content.Dimensions,
+                               ContentMetadata = content.ContentMetadata,
+                               Content = content.Content,
+                               ContentKey = content.ContentElementDefinition.Name,
+                               Views = content.ContentElementDefinition.Views,
+                               AvailableOnAllViews = content.ContentElementDefinition.AvailableOnAllViews
+                           };
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ContentDefinition>()
+                .HasMany(e => e.Views)
+                .WithMany(e => e.ContentDefinitions)
+                .Map(m =>
+                         {
+                             m.ToTable("ViewContentDefinitions");
+                             m.MapLeftKey("View_Id");
+                             m.MapRightKey("ContentDefinition_Id");
+                         });
         }
 
         public IDbSet<Content> Contents
@@ -58,6 +82,7 @@ namespace NeuCMS.Repositories.EntityFramework_43
             get { return Set<NameSpace>(); }
         }
 
+        public IQueryable<ContentQueryResult> ViewContents { get; private set; }
 
         //public DbSet<Content> Contents { get; set; }
         //public DbSet<DigitalAsset> DigitalAssets { get; set; }
