@@ -6,7 +6,7 @@ using System.Linq;
 using System.ServiceModel.Web;
 using System.Web;
 using NeuCMS.Core.Entities;
-using NeuCMS.Repositories.EntityFramework_43;
+using NeuCMS.Repositories.EntityFramework;
 
 namespace NeuCMS.Services
 {

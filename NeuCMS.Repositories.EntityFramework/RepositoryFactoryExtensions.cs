@@ -1,4 +1,4 @@
-﻿namespace NeuCMS.Repositories.EntityFramework_43
+﻿namespace NeuCMS.Repositories.EntityFramework
 {
     public static class RepositoryFactoryExtensions
     {

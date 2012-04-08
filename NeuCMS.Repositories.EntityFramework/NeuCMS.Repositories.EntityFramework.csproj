@@ -8,8 +8,8 @@
     <ProjectGuid>{465BA55F-F71B-4A46-96AD-5C66C2F9EB9F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NeuCMS.Repositories.EntityFramework_43</RootNamespace>
-    <AssemblyName>NeuCMS.Repositories.EntityFramework_43</AssemblyName>
+    <RootNamespace>NeuCMS.Repositories.EntityFramework</RootNamespace>
+    <AssemblyName>NeuCMS.Repositories.EntityFramework</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\NeuCMS\</SolutionDir>

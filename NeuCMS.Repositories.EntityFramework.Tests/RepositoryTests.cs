@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using NUnit.Framework;
 using NeuCMS.Core.Entities;
-using NeuCMS.Repositories.EntityFramework_43;
+using NeuCMS.Repositories.EntityFramework;
 
 namespace NeuCMS.Repositories.EntityFramework.Tests
 {

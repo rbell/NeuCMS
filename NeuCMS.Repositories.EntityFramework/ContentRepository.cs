@@ -5,7 +5,7 @@ using System.Linq;
 using NeuCMS.Core.Entities;
 using NeuCMS.Core.Repositories;
 
-namespace NeuCMS.Repositories.EntityFramework_43
+namespace NeuCMS.Repositories.EntityFramework
 {
     public class ContentRepository : DbContext, IContentRepository
     {

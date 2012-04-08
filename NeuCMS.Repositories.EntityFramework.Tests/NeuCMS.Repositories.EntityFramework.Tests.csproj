@@ -76,9 +76,9 @@
       <Project>{9658EE6C-288D-4A52-95BE-F952406A7474}</Project>
       <Name>NeuCMS.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NeuCMS.Repositories.EntityFramework_43\NeuCMS.Repositories.EntityFramework_43.csproj">
+    <ProjectReference Include="..\NeuCMS.Repositories.EntityFramework\NeuCMS.Repositories.EntityFramework.csproj">
       <Project>{465BA55F-F71B-4A46-96AD-5C66C2F9EB9F}</Project>
-      <Name>NeuCMS.Repositories.EntityFramework_43</Name>
+      <Name>NeuCMS.Repositories.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
