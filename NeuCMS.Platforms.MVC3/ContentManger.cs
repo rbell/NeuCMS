@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
-using System.Text;
-using NeuCMS.Platforms.MVC3.ContentService;
+using NeuCMS.Core.Entities;
 
 namespace NeuCMS.Platforms.MVC3
 {
@@ -11,19 +10,12 @@ namespace NeuCMS.Platforms.MVC3
     {
         public static void InitContent(dynamic viewBag, string nameSpace, string page, Dictionary<string, string> dimensions)
         {
-            var client = ServiceClientFactory.CreateClient();
-            var content = client.QueryContent(new ContentQueryCriteria()
-                                                  {
-                                                      NameSpace = nameSpace,
-                                                      Pages = new List<string>() {page},
-                                                      Dimensions = (from KeyValuePair<string, string> d in dimensions
-                                                                    select
-                                                                        new DimensionCriteria()
-                                                                            {
-                                                                                DimensionName = d.Key,
-                                                                                DimensionValue = d.Value
-                                                                            }).ToList()
-                                                  });
+            var repository = new ContentRepository(
+                new Uri(System.Configuration.ConfigurationManager.AppSettings["NeuCMSServiceURL"])
+                );
+
+            var content = repository.GetViewContents(nameSpace,page, dimensions.ToQueryString()).ToList(); 
+       
             dynamic neuCMSContent = new NeuCMSContent(content);
             viewBag.NeuContent = neuCMSContent;
         }
@@ -33,9 +25,9 @@ namespace NeuCMS.Platforms.MVC3
     {
         private List<ContentQueryResult> _results;
 
-        public NeuCMSContent(ContentQueryResults content)
+        public NeuCMSContent(List<ContentQueryResult> content)
         {
-            _results = content.Results;
+            _results = content;
         }
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)

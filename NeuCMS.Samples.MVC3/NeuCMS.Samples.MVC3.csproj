@@ -144,6 +144,12 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NeuCMS.Platforms.MVC3\NeuCMS.Platforms.MVC3.csproj">
+      <Project>{DE353188-E847-4A59-A0EE-9354B709A28B}</Project>
+      <Name>NeuCMS.Platforms.MVC3</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

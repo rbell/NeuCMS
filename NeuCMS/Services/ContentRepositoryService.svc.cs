@@ -19,7 +19,7 @@ namespace NeuCMS.Services
             // Examples:
             // config.SetEntitySetAccessRule("MyEntityset", EntitySetRights.AllRead);
             // config.SetServiceOperationAccessRule("MyServiceOperation", ServiceOperationRights.All);
-            config.SetEntitySetAccessRule("ViewContents", EntitySetRights.AllRead);
+            config.SetServiceOperationAccessRule("GetViewContents", ServiceOperationRights.AllRead);
             config.SetEntitySetAccessRule("Contents", EntitySetRights.AllRead);
             config.SetEntitySetAccessRule("DigitalAssets", EntitySetRights.AllRead);
             config.SetEntitySetAccessRule("ContentDefinitions", EntitySetRights.AllRead);
@@ -29,8 +29,40 @@ namespace NeuCMS.Services
             config.SetEntitySetAccessRule("DimensionDefinitions", EntitySetRights.AllRead);
             config.SetEntitySetAccessRule("Views", EntitySetRights.AllRead);
             config.SetEntitySetAccessRule("NameSpaces", EntitySetRights.AllRead);
-            config.SetEntitySetAccessRule("ViewContents", EntitySetRights.AllRead);
+            config.SetEntitySetAccessRule("ContentQueryResults", EntitySetRights.AllRead);
             config.DataServiceBehavior.MaxProtocolVersion = DataServiceProtocolVersion.V2;
         }
+
+        [WebGet]
+        public IQueryable<ContentQueryResult> GetViewContents(string nameSpace, string viewName, string dimensionValues )
+        {
+            var dimensions = dimensionValues.ParseQueryKeyValues();
+
+            var dbcontents = (from content in this.CurrentDataSource.Contents.OfType<ElementContent>()
+                              where content.ContentElementDefinition.NameSpace.NameSpaceName == "NeuCMS.Samples" &&
+                                    (from v in content.ContentElementDefinition.Views select v.ViewName).Contains(
+                                        "Home")
+                              select content).ToList();
+
+            var contents = dbcontents.Where(c => c.MatchesDimensions(dimensions)).Select(
+                   c => new ContentQueryResult()
+                   {
+                       Id = c.Id,
+                       Content = c.Content,
+                       ContentKey = c.ContentElementDefinition.Name
+                   }).AsQueryable();
+
+            //var viewContents = from content in this.CurrentDataSource.Contents.OfType<ElementContent>()
+            //                   where content.ContentElementDefinition.NameSpace.NameSpaceName == nameSpace &&
+            //             (from v in content.ContentElementDefinition.Views select v.ViewName).Contains(viewName)
+            //                   select new ContentQueryResult()
+            //                   {
+            //                       Id = content.Id,
+            //                       Content = content.Content,
+            //                       ContentKey = content.ContentElementDefinition.Name,
+            //                   };
+            return contents;
+        }
+
     }
 }

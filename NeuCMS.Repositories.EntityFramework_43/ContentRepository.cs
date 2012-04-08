@@ -11,17 +11,13 @@ namespace NeuCMS.Repositories.EntityFramework_43
     {
         public ContentRepository()
         {
-            ViewContents = from content in Contents.OfType<ElementContent>()
-                           select new ContentQueryResult()
-                           {
-                               Id = content.Id,
-                               Dimensions = content.Dimensions,
-                               ContentMetadata = content.ContentMetadata,
-                               Content = content.Content,
-                               ContentKey = content.ContentElementDefinition.Name,
-                               Views = content.ContentElementDefinition.Views,
-                               AvailableOnAllViews = content.ContentElementDefinition.AvailableOnAllViews
-                           };
+            ContentQueryResults = from content in Contents.OfType<ElementContent>()
+                                  select new ContentQueryResult()
+                                             {
+                                                 Content = content.Content,
+                                                 ContentKey = content.ContentElementDefinition.Name,
+                                                 Id = content.Id
+                                             };
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -82,7 +78,7 @@ namespace NeuCMS.Repositories.EntityFramework_43
             get { return Set<NameSpace>(); }
         }
 
-        public IQueryable<ContentQueryResult> ViewContents { get; private set; }
+        public IQueryable<ContentQueryResult> ContentQueryResults { get; set; }
 
         //public DbSet<Content> Contents { get; set; }
         //public DbSet<DigitalAsset> DigitalAssets { get; set; }

@@ -18,15 +18,13 @@ namespace NeuCMS.Tests
             using (var db = new ContentRepository())
             {
                 var contents = from content in db.Contents.OfType<ElementContent>()
+                               where content.ContentElementDefinition.NameSpace.NameSpaceName == "NeuCMS.Samples" &&
+                               (from v in content.ContentElementDefinition.Views select v.ViewName).Contains("Home")
                                select new ContentQueryResult()
                                {
                                    Id = content.Id,
-                                   Dimensions = content.Dimensions,
-                                   ContentMetadata = content.ContentMetadata,
                                    Content = content.Content,
                                    ContentKey = content.ContentElementDefinition.Name,
-                                   Views = content.ContentElementDefinition.Views,
-                                   AvailableOnAllViews = content.ContentElementDefinition.AvailableOnAllViews
                                };
 
                 Assert.That(contents.Any(), Is.True);

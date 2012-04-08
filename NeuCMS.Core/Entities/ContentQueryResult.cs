@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Data.Services.Common;
 
 namespace NeuCMS.Core.Entities
@@ -8,19 +8,38 @@ namespace NeuCMS.Core.Entities
     {
         public int Id { get; set; }
 
-        public string NameSpace { get; set; }
-
         public string ContentKey { get; set; }
 
         public string Content { get; set; }
 
-        public ICollection<DimensionValue> Dimensions { get; set; }
+    }
 
-        public ICollection<ContentMetadataValue> ContentMetadata { get; set; }
+    public class QueryKeyValue : IEquatable<QueryKeyValue>
+    {
+        public QueryKeyValue()
+        {
+        }
 
-        public ICollection<View> Views { get; set; }
+        public QueryKeyValue(string key, string value)
+        {
+            Key = key;
+            Value = value;
+        }
 
-        public bool AvailableOnAllViews { get; set; }
+        public string Key { get; set; }
+        public string Value { get; set; }
 
+        public bool Equals(QueryKeyValue other)
+        {
+            return this.Key == other.Key && this.Value == other.Value;
+        }
+
+        public override int GetHashCode()
+        {
+            int keyHash = Key == null ? 0 : Key.GetHashCode();
+            int valueHash = Value == null ? 0 : Value.GetHashCode();
+            return keyHash ^ valueHash;
+        }
     }
 }
+
