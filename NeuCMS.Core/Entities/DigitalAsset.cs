@@ -6,7 +6,7 @@ namespace NeuCMS.Core.Entities
     public class DigitalAsset
     {
         public int Id { get; set; }
-        public int ContentType { get; set; }
+        public string ContentType { get; set; }
         public byte[] Data { get; set; }
     }
 }

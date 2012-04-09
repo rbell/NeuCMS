@@ -16,10 +16,6 @@ namespace NeuCMS.Services
         // This method is called only once to initialize service-wide policies.
         public static void InitializeService(DataServiceConfiguration config)
         {
-            // TODO: set rules to indicate which entity sets and service operations are visible, updatable, etc.
-            // Examples:
-            // config.SetEntitySetAccessRule("MyEntityset", EntitySetRights.AllRead);
-            // config.SetServiceOperationAccessRule("MyServiceOperation", ServiceOperationRights.All);
             config.SetServiceOperationAccessRule("GetViewContents", ServiceOperationRights.AllRead);
             config.SetEntitySetAccessRule("Contents", EntitySetRights.AllRead);
             config.SetEntitySetAccessRule("DigitalAssets", EntitySetRights.AllRead);
@@ -71,15 +67,6 @@ namespace NeuCMS.Services
                                  }))
                 .AsQueryable();
 
-            //var viewContents = from content in this.CurrentDataSource.Contents.OfType<ElementContent>()
-            //                   where content.ContentElementDefinition.NameSpace.NameSpaceName == nameSpace &&
-            //             (from v in content.ContentElementDefinition.Views select v.ViewName).Contains(viewName)
-            //                   select new ContentQueryResult()
-            //                   {
-            //                       Id = content.Id,
-            //                       Content = content.Content,
-            //                       ContentKey = content.ContentElementDefinition.Name,
-            //                   };
             return contents;
         }
 

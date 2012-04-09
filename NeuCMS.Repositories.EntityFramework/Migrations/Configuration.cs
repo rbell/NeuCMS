@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Drawing;
 using NeuCMS.Core.Entities;
 
 namespace NeuCMS.Repositories.EntityFramework.Migrations
@@ -24,18 +25,25 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                                     NameSpaceName = "NeuCMS.Samples"
                                 };
 
-
             context.NameSpaces.AddOrUpdate(
                 n => n.Id,
                 nameSpace);
 
-            var contentDef = new ContentDefinition()
+            var contentDef1 = new ContentDefinition()
                                  {
                                      Id = 1,
                                      Name = "Message",
                                      NameSpace = nameSpace,
                                      AvailableOnAllViews = false
                                  };
+
+            var contentDef2 = new ContentDefinition()
+            {
+                Id = 2,
+                Name = "Image",
+                NameSpace = nameSpace,
+                AvailableOnAllViews = false
+            };
 
             var view = new View()
                            {
@@ -44,29 +52,58 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                                ViewName = "Home",
                                ContentDefinitions = new List<ContentDefinition>()
                                                         {
-                                                            contentDef
+                                                            contentDef1, 
+                                                            contentDef2
                                                         }
                            };
 
             var dimDef = new DimensionDefinition() {Id = 1, DimensionName = "Language", NameSpace = nameSpace };
 
             var elementContent = new ElementContent()
-            {
-                Id = 1,
-                Content = "Hello World!",
-                ContentElementDefinition = view.ContentDefinitions[0],
-                Dimensions = new List<DimensionValue>()
-                                                       {
-                                                           new DimensionValue()
-                                                               {Id = 1, DimensionDefinition = dimDef, Value = "English"}
-                                                       }
-            };
+                                     {
+                                         Id = 1,
+                                         Content = "Hello World!",
+                                         ContentElementDefinition = view.ContentDefinitions[0],
+                                         Dimensions = new List<DimensionValue>()
+                                                          {
+                                                              new DimensionValue()
+                                                                  {
+                                                                      Id = 1,
+                                                                      DimensionDefinition = dimDef,
+                                                                      Value = "English"
+                                                                  }
+                                                          }
+                                     };
+
+            var converter = new ImageConverter();
+            var imgBytes = (byte[]) converter.ConvertTo(TestData.Test, typeof (byte[]));
+
+            var mediaContent = new MediaContent()
+                                   {
+                                       Id = 2,
+                                       ContentElementDefinition = view.ContentDefinitions[1],
+                                       Dimensions = new List<DimensionValue>()
+                                                        {
+                                                            new DimensionValue()
+                                                                {
+                                                                    Id = 1,
+                                                                    DimensionDefinition = dimDef,
+                                                                    Value = "English"
+                                                                }
+                                                        },
+                                       DigitalAsset = new DigitalAsset()
+                                                          {
+                                                              Id = 1,
+                                                              ContentType = "image/jpeg",
+                                                              Data = imgBytes
+                                                          }
+                                   };
 
             context.Views.AddOrUpdate(v => v.Id, view);
-            context.ContentDefinitions.AddOrUpdate(c => c.Name, contentDef);
+            context.ContentDefinitions.AddOrUpdate(c => c.Name, contentDef1);
             context.DimensionDefinitions.AddOrUpdate(d => d.DimensionName, dimDef);
             context.Contents.AddOrUpdate(c => c.Id, elementContent);
-            
+            context.Contents.AddOrUpdate(c => c.Id, mediaContent);
         }
     }
 }
