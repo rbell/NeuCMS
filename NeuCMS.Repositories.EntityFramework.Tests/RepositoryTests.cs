@@ -11,53 +11,6 @@ namespace NeuCMS.Repositories.EntityFramework.Tests
     public class RepositoryTests
     {
         [Test]
-        public void temp()
-        {
-            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ContentRepository>());
-            using (var db = new ContentRepository())
-            {
-                var ns = new NameSpace()
-                             {
-                                 Description = "Sample NeuCMS Content Data",
-                                 NameSpaceName = "NeuCMS.Samples"
-                             };
-                db.NameSpaces.Add(ns);
-
-                var view = new View()
-                               {
-                                   NameSpace = ns,
-                                   ViewName = "Home",
-                                   ContentDefinitions = new List<ContentDefinition>()
-                                                            {
-                                                                new ContentDefinition()
-                                                                    {
-                                                                        Name = "Message",
-                                                                        NameSpace = ns,
-                                                                        AvailableOnAllViews = false                                                                    }
-                                                            }
-                               };
-                db.Views.Add(view);
-
-                var dimDef = new DimensionDefinition() {DimensionName = "Language", NameSpace = ns};
-                db.DimensionDefinitions.Add(dimDef);
-
-                var content = new ElementContent()
-                                  {
-                                      Content = "Hello World!",
-                                      ContentElementDefinition = view.ContentDefinitions[0],
-                                      Dimensions = new List<DimensionValue>()
-                                                       {
-                                                           new DimensionValue()
-                                                               {DimensionDefinition = dimDef, Value = "English"}
-                                                       }
-                                  };
-                db.Contents.Add(content);
-
-                db.SaveChanges();
-            }
-        }
-
-        [Test]
         public void GetViewContent()
         {
             var dimensions = new List<QueryKeyValue>()

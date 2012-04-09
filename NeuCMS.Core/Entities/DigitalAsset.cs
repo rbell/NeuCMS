@@ -7,5 +7,6 @@ namespace NeuCMS.Core.Entities
     {
         public int Id { get; set; }
         public int ContentType { get; set; }
+        public byte[] Data { get; set; }
     }
 }
