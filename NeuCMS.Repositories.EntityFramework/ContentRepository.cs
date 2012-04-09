@@ -28,8 +28,8 @@ namespace NeuCMS.Repositories.EntityFramework
                 .Map(m =>
                          {
                              m.ToTable("ViewContentDefinitions");
-                             m.MapLeftKey("View_Id");
-                             m.MapRightKey("ContentDefinition_Id");
+                             m.MapLeftKey("ContentDefinition_Id");
+                             m.MapRightKey("View_Id");
                          });
         }
 

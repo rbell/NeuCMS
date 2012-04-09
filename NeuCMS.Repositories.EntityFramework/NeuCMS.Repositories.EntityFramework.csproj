@@ -52,25 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentRepository.cs" />
-    <Compile Include="Migrations\201204081937065_InitialCreate.cs" />
-    <Compile Include="Migrations\201204081937065_InitialCreate.Designer.cs">
-      <DependentUpon>201204081937065_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201204090109060_AddDigitalAssetData.cs" />
-    <Compile Include="Migrations\201204090109060_AddDigitalAssetData.Designer.cs">
-      <DependentUpon>201204090109060_AddDigitalAssetData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201204090146385_DeleteExplicitNameSpaceId.cs" />
-    <Compile Include="Migrations\201204090146385_DeleteExplicitNameSpaceId.Designer.cs">
-      <DependentUpon>201204090146385_DeleteExplicitNameSpaceId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201204090208521_DeleteExplicitNameSpaceId2.cs" />
-    <Compile Include="Migrations\201204090208521_DeleteExplicitNameSpaceId2.Designer.cs">
-      <DependentUpon>201204090208521_DeleteExplicitNameSpaceId2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201204090230511_ChangeDigitalAssetContentTypeToString.cs" />
-    <Compile Include="Migrations\201204090230511_ChangeDigitalAssetContentTypeToString.Designer.cs">
-      <DependentUpon>201204090230511_ChangeDigitalAssetContentTypeToString.cs</DependentUpon>
+    <Compile Include="Migrations\201204090303288_InitialCreate.cs" />
+    <Compile Include="Migrations\201204090303288_InitialCreate.Designer.cs">
+      <DependentUpon>201204090303288_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

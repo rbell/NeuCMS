@@ -19,23 +19,23 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
         protected override void Seed(NeuCMS.Repositories.EntityFramework.ContentRepository context)
         {
             var nameSpace = new NameSpace()
-                                {
-                                    Id = 1,
-                                    Description = "Sample NeuCMS Content Data",
-                                    NameSpaceName = "NeuCMS.Samples"
-                                };
+            {
+                Id = 1,
+                Description = "Sample NeuCMS Content Data",
+                NameSpaceName = "NeuCMS.Samples"
+            };
 
             context.NameSpaces.AddOrUpdate(
                 n => n.Id,
                 nameSpace);
 
             var contentDef1 = new ContentDefinition()
-                                 {
-                                     Id = 1,
-                                     Name = "Message",
-                                     NameSpace = nameSpace,
-                                     AvailableOnAllViews = false
-                                 };
+            {
+                Id = 1,
+                Name = "Message",
+                NameSpace = nameSpace,
+                AvailableOnAllViews = false
+            };
 
             var contentDef2 = new ContentDefinition()
             {
@@ -46,25 +46,25 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
             };
 
             var view = new View()
-                           {
-                               Id = 1,
-                               NameSpace = nameSpace,
-                               ViewName = "Home",
-                               ContentDefinitions = new List<ContentDefinition>()
+            {
+                Id = 1,
+                NameSpace = nameSpace,
+                ViewName = "Home",
+                ContentDefinitions = new List<ContentDefinition>()
                                                         {
                                                             contentDef1, 
                                                             contentDef2
                                                         }
-                           };
+            };
 
-            var dimDef = new DimensionDefinition() {Id = 1, DimensionName = "Language", NameSpace = nameSpace };
+            var dimDef = new DimensionDefinition() { Id = 1, DimensionName = "Language", NameSpace = nameSpace };
 
             var elementContent = new ElementContent()
-                                     {
-                                         Id = 1,
-                                         Content = "Hello World!",
-                                         ContentElementDefinition = view.ContentDefinitions[0],
-                                         Dimensions = new List<DimensionValue>()
+            {
+                Id = 1,
+                Content = "Hello World!",
+                ContentElementDefinition = view.ContentDefinitions[0],
+                Dimensions = new List<DimensionValue>()
                                                           {
                                                               new DimensionValue()
                                                                   {
@@ -73,16 +73,16 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                                                                       Value = "English"
                                                                   }
                                                           }
-                                     };
+            };
 
             var converter = new ImageConverter();
-            var imgBytes = (byte[]) converter.ConvertTo(TestData.Test, typeof (byte[]));
+            var imgBytes = (byte[])converter.ConvertTo(TestData.Test, typeof(byte[]));
 
             var mediaContent = new MediaContent()
-                                   {
-                                       Id = 2,
-                                       ContentElementDefinition = view.ContentDefinitions[1],
-                                       Dimensions = new List<DimensionValue>()
+            {
+                Id = 2,
+                ContentElementDefinition = view.ContentDefinitions[1],
+                Dimensions = new List<DimensionValue>()
                                                         {
                                                             new DimensionValue()
                                                                 {
@@ -91,13 +91,13 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                                                                     Value = "English"
                                                                 }
                                                         },
-                                       DigitalAsset = new DigitalAsset()
-                                                          {
-                                                              Id = 1,
-                                                              ContentType = "image/jpeg",
-                                                              Data = imgBytes
-                                                          }
-                                   };
+                DigitalAsset = new DigitalAsset()
+                {
+                    Id = 1,
+                    ContentType = "image/jpeg",
+                    Data = imgBytes
+                }
+            };
 
             context.Views.AddOrUpdate(v => v.Id, view);
             context.ContentDefinitions.AddOrUpdate(c => c.Name, contentDef1);

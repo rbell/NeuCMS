@@ -34,7 +34,6 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        NamespaceId = c.String(),
                         DimensionName = c.String(),
                         NameSpace_Id = c.Int(),
                     })
@@ -47,12 +46,12 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        NameSpaceId = c.Int(nullable: false),
                         ViewName = c.String(),
+                        NameSpace_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("NameSpaces", t => t.NameSpaceId, cascadeDelete: true)
-                .Index(t => t.NameSpaceId);
+                .ForeignKey("NameSpaces", t => t.NameSpace_Id)
+                .Index(t => t.NameSpace_Id);
             
             CreateTable(
                 "ContentMetadataDefinitions",
@@ -117,7 +116,8 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ContentType = c.Int(nullable: false),
+                        ContentType = c.String(),
+                        Data = c.Binary(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -125,21 +125,21 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
                 "ViewContentDefinitions",
                 c => new
                     {
-                        View_Id = c.Int(nullable: false),
                         ContentDefinition_Id = c.Int(nullable: false),
+                        View_Id = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.View_Id, t.ContentDefinition_Id })
-                .ForeignKey("ContentDefinitions", t => t.View_Id, cascadeDelete: true)
-                .ForeignKey("Views", t => t.ContentDefinition_Id, cascadeDelete: true)
-                .Index(t => t.View_Id)
-                .Index(t => t.ContentDefinition_Id);
+                .PrimaryKey(t => new { t.ContentDefinition_Id, t.View_Id })
+                .ForeignKey("ContentDefinitions", t => t.ContentDefinition_Id, cascadeDelete: true)
+                .ForeignKey("Views", t => t.View_Id, cascadeDelete: true)
+                .Index(t => t.ContentDefinition_Id)
+                .Index(t => t.View_Id);
             
         }
         
         public override void Down()
         {
-            DropIndex("ViewContentDefinitions", new[] { "ContentDefinition_Id" });
             DropIndex("ViewContentDefinitions", new[] { "View_Id" });
+            DropIndex("ViewContentDefinitions", new[] { "ContentDefinition_Id" });
             DropIndex("Contents", new[] { "DigitalAsset_Id" });
             DropIndex("Contents", new[] { "ContentElementDefinition_Id" });
             DropIndex("ContentMetadataValues", new[] { "Content_Id" });
@@ -147,11 +147,11 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
             DropIndex("DimensionValues", new[] { "Content_Id" });
             DropIndex("DimensionValues", new[] { "DimensionDefinition_Id" });
             DropIndex("ContentMetadataDefinitions", new[] { "ContentDefinitionId" });
-            DropIndex("Views", new[] { "NameSpaceId" });
+            DropIndex("Views", new[] { "NameSpace_Id" });
             DropIndex("DimensionDefinitions", new[] { "NameSpace_Id" });
             DropIndex("ContentDefinitions", new[] { "NameSpace_Id" });
-            DropForeignKey("ViewContentDefinitions", "ContentDefinition_Id", "Views");
-            DropForeignKey("ViewContentDefinitions", "View_Id", "ContentDefinitions");
+            DropForeignKey("ViewContentDefinitions", "View_Id", "Views");
+            DropForeignKey("ViewContentDefinitions", "ContentDefinition_Id", "ContentDefinitions");
             DropForeignKey("Contents", "DigitalAsset_Id", "DigitalAssets");
             DropForeignKey("Contents", "ContentElementDefinition_Id", "ContentDefinitions");
             DropForeignKey("ContentMetadataValues", "Content_Id", "Contents");
@@ -159,7 +159,7 @@ namespace NeuCMS.Repositories.EntityFramework.Migrations
             DropForeignKey("DimensionValues", "Content_Id", "Contents");
             DropForeignKey("DimensionValues", "DimensionDefinition_Id", "DimensionDefinitions");
             DropForeignKey("ContentMetadataDefinitions", "ContentDefinitionId", "ContentDefinitions");
-            DropForeignKey("Views", "NameSpaceId", "NameSpaces");
+            DropForeignKey("Views", "NameSpace_Id", "NameSpaces");
             DropForeignKey("DimensionDefinitions", "NameSpace_Id", "NameSpaces");
             DropForeignKey("ContentDefinitions", "NameSpace_Id", "NameSpaces");
             DropTable("ViewContentDefinitions");
