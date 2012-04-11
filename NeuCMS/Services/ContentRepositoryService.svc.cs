@@ -62,7 +62,7 @@ namespace NeuCMS.Services
                         m => new ContentQueryResult()
                                  {
                                      Id = m.Id,
-                                     Content = url.Content("~/Service/Asset/" + m.Id.ToString()),
+                                     Content = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + url.Content("~/Asset/Index/" + m.Id.ToString()),
                                      ContentKey = m.ContentElementDefinition.Name
                                  }))
                 .AsQueryable();
