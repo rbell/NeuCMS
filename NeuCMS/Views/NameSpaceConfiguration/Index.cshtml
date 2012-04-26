@@ -1,1 +1,30 @@
-﻿<h2>NameSpaces Index</h2>
+﻿@using Lib.Web.Mvc.JQuery.JqGrid
+@using NeuCMS.Models
+@{
+    var grid = new JqGridHelper<NameSpaceGridModel>("namespaces",
+                                                    caption: "NameSpaces",
+                                                    dataType: Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.Json,
+                                                    footerEnabled: true,
+                                                    methodType: Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes.Post,
+                                                    pager: true,
+                                                    rowsList: new List<int> { 10, 20, 30, 40, 50 },
+                                                    rowsNumber: 10,
+                                                    sortingName: "Id",
+                                                    sortingOrder: JqGridSortingOrders.Asc,
+                                                    url: Url.Action("NameSpaces"),
+                                                    userDataOnFooter: true,
+                                                    viewRecords: true
+        );
+
+}
+@section JavaScript
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            @grid.GetJavaScript()
+        });
+    </script>
+}
+@grid.GetHtml()
+<h2>
+    NameSpaces Index</h2>
