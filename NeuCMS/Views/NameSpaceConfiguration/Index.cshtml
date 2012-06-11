@@ -13,7 +13,8 @@
                                                     sortingOrder: JqGridSortingOrders.Asc,
                                                     url: Url.Action("NameSpaces"),
                                                     userDataOnFooter: true,
-                                                    viewRecords: true
+                                                    viewRecords: true,
+                                                    onSelectRow:
         );
 
 }
@@ -21,10 +22,10 @@
 {
     <script type="text/javascript">
         $(document).ready(function() {
-            @grid.GetJavaScript()
+            @grid.GetJavaScript();
+            
         });
     </script>
 }
 @grid.GetHtml()
-<h2>
-    NameSpaces Index</h2>
+<div id="namespaceDetail"></div>

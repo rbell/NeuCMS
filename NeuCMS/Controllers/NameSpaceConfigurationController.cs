@@ -49,5 +49,11 @@ namespace NeuCMS.Controllers
                 return new JqGridJsonResult() { Data = response };
             }
         }
+
+        public ActionResult SaveNameSpace(NameSpaceGridModel model)
+        {
+            return null;
+        }
+
     }
 }
