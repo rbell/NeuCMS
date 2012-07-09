@@ -50,6 +50,19 @@ namespace NeuCMS.Controllers
             }
         }
 
+        public ActionResult EditNameSpace(int id)
+        {
+            PartialViewResult partial = null;
+
+            using (var db = new ContentRepository())
+            {
+                var nameSpaceQry = from n in db.NameSpaces where n.Id == id select new NameSpaceGridModel() {Description = n.Description, Id = n.Id, NameSpaceName = n.NameSpaceName};
+                partial = PartialView("EditNameSpace", nameSpaceQry.FirstOrDefault());
+            }
+
+            return partial;
+        }
+
         public ActionResult SaveNameSpace(NameSpaceGridModel model)
         {
             return null;

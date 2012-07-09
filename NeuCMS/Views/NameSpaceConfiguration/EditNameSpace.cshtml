@@ -9,13 +9,13 @@
         // Create view model from model where every property is observable
         var viewModel = ko.mapping.fromJS(data);
 
-        viewModel.FirstNameSize = ko.computed(function() {
-            return viewModel.FirstName().length;
-        }, this);
+//        viewModel.FirstNameSize = ko.computed(function() {
+//            return viewModel.FirstName().length;
+//        }, this);
         
-        viewModel.save = function() {
-            ko.utils.postJson('@Url.Action("Save")', ko.mapping.toJS(viewModel));
-        };
+//        viewModel.save = function() {
+//            ko.utils.postJson('@Url.Action("Save")', ko.mapping.toJS(viewModel));
+//        };
 
 
         // Apply the bindings

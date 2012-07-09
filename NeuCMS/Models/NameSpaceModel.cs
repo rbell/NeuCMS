@@ -5,6 +5,10 @@ namespace NeuCMS.Models
 {
     public class NameSpaceGridModel
     {
+        public NameSpaceGridModel()
+        {
+        }
+
         public NameSpaceGridModel(NameSpace ns)
         {
             Id = ns.Id;

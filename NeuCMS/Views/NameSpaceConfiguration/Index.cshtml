@@ -13,18 +13,32 @@
                                                     sortingOrder: JqGridSortingOrders.Asc,
                                                     url: Url.Action("NameSpaces"),
                                                     userDataOnFooter: true,
-                                                    viewRecords: true
+                                                    viewRecords: true,
+                                                    onSelectRow: "rowSelected"
         );
 
 }
+
 @section JavaScript
 {
     <script type="text/javascript">
         $(document).ready(function() {
             @grid.GetJavaScript();
-            
         });
+
+    var lastSelected;
+    function rowSelected(id) {
+        if (id && lastSelected !== id) {
+            $.get("@Url.Action("EditNameSpace")" + "?id=" + id, function(data) {
+                $('#namespaceDetail').replaceWith(data);
+            });
+
+            lastSelected = id;
+        }
+    }
+    
     </script>
 }
+
 @grid.GetHtml()
 <div id="namespaceDetail"></div>
