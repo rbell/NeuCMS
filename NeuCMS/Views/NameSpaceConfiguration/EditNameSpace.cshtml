@@ -9,12 +9,12 @@
         // Create view model from model where every property is observable
         var viewModel = ko.mapping.fromJS(data);
 
-        viewModel.FirstNameSize = ko.computed(function() {
-            return viewModel.FirstName().length;
-        }, this);
+//        viewModel.FirstNameSize = ko.computed(function() {
+//            return viewModel.FirstName().length;
+//        }, this);
         
         viewModel.save = function() {
-            ko.utils.postJson('@Url.Action("Save")', ko.mapping.toJS(viewModel));
+            ko.utils.postJson('@Url.Action("SaveNameSpace")', ko.mapping.toJS(viewModel));
         };
 
 
@@ -22,18 +22,22 @@
         ko.applyBindings(viewModel);
     });
 </script>
-
 <div id="editNamespaceDiv">
-<p>
-	@Html.LabelFor(m => m.Id)
-	<span data-bind="text: Id" />
-</p>
-<p>
-	@Html.LabelFor(m => m.NameSpaceName)
-	<input data-bind="value: NameSpaceName" />
-</p>
-<p>
-	@Html.LabelFor(m => m.Description)
-	<input data-bind="value: Description" />
-</p>
+    <form data-bind="submit: save">
+        <p>
+            @Html.LabelFor(m => m.Id)
+            <span data-bind="text: Id" />
+        </p>
+        <p>
+            @Html.LabelFor(m => m.NameSpaceName)
+            <input data-bind="value: NameSpaceName" />
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Description)
+            <input data-bind="value: Description" />
+        </p>
+        <p>
+            <button type="submit">Save</button>    
+        </p>
+    </form>
 </div>
