@@ -8,15 +8,12 @@
         
         // Create view model from model where every property is observable
         var viewModel = ko.mapping.fromJS(data);
-
-//        viewModel.FirstNameSize = ko.computed(function() {
-//            return viewModel.FirstName().length;
-//        }, this);
         
         viewModel.save = function() {
-            ko.utils.postJson('@Url.Action("SaveNameSpace")', ko.mapping.toJS(viewModel));
+            ko.utils.postJson('@Url.Action("SaveNameSpace")', {nameSpace: ko.mapping.toJS(viewModel)});
         };
-
+        
+        $("#cancel").click(function() {$("#editNamespaceDiv").hide()});
 
         // Apply the bindings
         ko.applyBindings(viewModel);
@@ -38,6 +35,7 @@
         </p>
         <p>
             <button type="submit">Save</button>    
+            <button id="cancel">Cancel</button>    
         </p>
     </form>
 </div>

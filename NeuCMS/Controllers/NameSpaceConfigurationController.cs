@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Lib.Web.Mvc.JQuery.JqGrid;
 using NeuCMS.Models;
 using NeuCMS.Repositories.EntityFramework;
+using NeuCMS.Serializers;
 
 namespace NeuCMS.Controllers
 {
@@ -63,21 +64,22 @@ namespace NeuCMS.Controllers
             return partial;
         }
 
-        public ActionResult SaveNameSpace(NameSpaceGridModel model)
+        [HttpPost]
+        public ActionResult SaveNameSpace([FromURLEncodedJson]NameSpaceGridModel nameSpace)
         {
             using (var db = new ContentRepository())
             {
-                var nameSpaceQry = from n in db.NameSpaces where n.Id == model.Id select n;
+                var nameSpaceQry = from n in db.NameSpaces where n.Id == nameSpace.Id select n;
                 if (nameSpaceQry.Any())
                 {
-                    var nameSpace = nameSpaceQry.First();
-                    nameSpace.Description = model.Description;
-                    nameSpace.NameSpaceName = model.NameSpaceName;
+                    var ns = nameSpaceQry.First();
+                    ns.Description = nameSpace.Description;
+                    ns.NameSpaceName = nameSpace.NameSpaceName;
                     db.SaveChanges();
                     db.Commit();
                 }
             }
-            return null;
+            return View("Index");
         }
 
     }
