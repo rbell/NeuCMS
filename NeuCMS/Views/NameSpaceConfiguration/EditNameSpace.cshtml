@@ -3,23 +3,25 @@
 @model NeuCMS.Models.NameSpaceGridModel
 <script type="text/javascript">
     jQuery('#editNamespaceDiv').ready(function () {
+        $("#editNamespaceDiv").jqm();
+        $("#editNamespaceDiv").jqmShow();
+        
         //  Create json instance of model
         var data = @Html.Raw(Json.Encode(Model));
-        
         // Create view model from model where every property is observable
         var viewModel = ko.mapping.fromJS(data);
-        
         viewModel.save = function() {
             ko.utils.postJson('@Url.Action("SaveNameSpace")', {nameSpace: ko.mapping.toJS(viewModel)});
         };
         
-        $("#cancel").click(function() {$("#editNamespaceDiv").hide()});
-
         // Apply the bindings
         ko.applyBindings(viewModel);
+        
+        $("#cancel").click(function() {$("#editNamespaceDiv").jqmHide()});
+
     });
 </script>
-<div id="editNamespaceDiv">
+<div id="editNamespaceDiv" class="jqmWindow">
     <form data-bind="submit: save">
         <p>
             @Html.LabelFor(m => m.Id)

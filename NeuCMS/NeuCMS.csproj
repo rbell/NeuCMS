@@ -105,6 +105,7 @@
     <Content Include="Content\images\Logo.png" />
     <Content Include="Content\jqGrid\ellipsis-xbl.xml" />
     <Content Include="Content\jqGrid\jquery-ui-jqgrid.css" />
+    <Content Include="Content\jqModal\jqModal.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Test.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -178,6 +179,7 @@
     <Content Include="Dynamic Expressions.html" />
     <Content Include="Global.asax" />
     <Content Include="README.jQuery.vsdoc.txt" />
+    <Content Include="Scripts\jqModal.js" />
     <Content Include="Scripts\jquery-1.7.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.2.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
