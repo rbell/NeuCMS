@@ -1,5 +1,6 @@
 ﻿@using Lib.Web.Mvc.JQuery.JqGrid
 @using NeuCMS.Models
+@using NeuCMS.HtmlHelpers
 @{
     var grid = new JqGridHelper<NameSpaceGridModel>("namespaces",
                                                     caption: "NameSpaces",
@@ -40,16 +41,7 @@
 }
 @grid.GetHtml()
 <div id="namespaceDetail">
-    <div id="editNamespaceDiv" class="jqmWindow">
-        <div class="jqmHeader">
-            <div class="jqmHeaderTitle">
-                Title</div>
-            <div class="jqmHeaderCloseButton">
-                <input type="image" src="@Url.Content("~/Content/images/led-icons/cross.png")" class="jqmClose"/>
-            </div>
-        </div>
-        <div class="jqmContent">
-            <div id="formData"></div>
-        </div>
-    </div>
+    @Html.BeginJQModal("editNamespaceDiv","NameSpace")
+    <div id="formData"></div>
+    @Html.EndJQMOdal()
 </div>
