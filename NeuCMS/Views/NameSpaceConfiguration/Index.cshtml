@@ -8,7 +8,7 @@
                                                     footerEnabled: true,
                                                     methodType: Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes.Post,
                                                     pager: true,
-                                                    rowsList: new List<int> { 10, 20, 30, 40, 50 },
+                                                    rowsList: new List<int> {10, 20, 30, 40, 50},
                                                     rowsNumber: 10,
                                                     sortingName: "Id",
                                                     sortingOrder: JqGridSortingOrders.Asc,
@@ -16,9 +16,12 @@
                                                     userDataOnFooter: true,
                                                     viewRecords: true,
                                                     onSelectRow: "rowSelected"
-        );
 
+        ).Navigator(
+            options: new JqGridNavigatorOptions() {Add = true, Delete = false, Edit = false, Search = false, Refresh = false, AddFunction = "addNameSpace"}
+        );
 }
+
 @section JavaScript
 {
     <script type="text/javascript">
@@ -36,7 +39,15 @@
         
         $('#namespaces').jqGrid('resetSelection');
     }
-    
+
+    function addNameSpace() {
+        $.get("@Url.Action("EditNameSpace")" + "?id=0", function(data) {
+            $('#formData').replaceWith(data);
+            $("#editNamespaceDiv").jqmShow();
+        });
+        
+        $('#namespaces').jqGrid('resetSelection');
+    }    
     </script>
 }
 @grid.GetHtml()

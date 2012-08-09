@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lib.Web.Mvc.JQuery.JqGrid;
+using NeuCMS.Core.Entities;
 using NeuCMS.Models;
 using NeuCMS.Repositories.EntityFramework;
 using NeuCMS.Serializers;
@@ -55,10 +56,21 @@ namespace NeuCMS.Controllers
         {
             PartialViewResult partial = null;
 
-            using (var db = new ContentRepository())
+            if (id == 0)
             {
-                var nameSpaceQry = from n in db.NameSpaces where n.Id == id select new NameSpaceGridModel() {Description = n.Description, Id = n.Id, NameSpaceName = n.NameSpaceName};
-                partial = PartialView("EditNameSpace", nameSpaceQry.FirstOrDefault());
+                partial = PartialView("EditNameSpace", new NameSpaceGridModel());
+            }
+            else
+            {
+                using (var db = new ContentRepository())
+                {
+                    var nameSpaceQry = from n in db.NameSpaces
+                                       where n.Id == id
+                                       select
+                                           new NameSpaceGridModel()
+                                               {Description = n.Description, Id = n.Id, NameSpaceName = n.NameSpaceName};
+                    partial = PartialView("EditNameSpace", nameSpaceQry.FirstOrDefault());
+                }
             }
 
             return partial;
@@ -67,16 +79,31 @@ namespace NeuCMS.Controllers
         [HttpPost]
         public ActionResult SaveNameSpace([FromURLEncodedJson]NameSpaceGridModel nameSpace)
         {
-            using (var db = new ContentRepository())
+            if (nameSpace.Id == 0)
             {
-                var nameSpaceQry = from n in db.NameSpaces where n.Id == nameSpace.Id select n;
-                if (nameSpaceQry.Any())
+                var ns = new NameSpace();
+                ns.Description = nameSpace.Description;
+                ns.NameSpaceName = nameSpace.NameSpaceName;
+                using (var db = new ContentRepository())
                 {
-                    var ns = nameSpaceQry.First();
-                    ns.Description = nameSpace.Description;
-                    ns.NameSpaceName = nameSpace.NameSpaceName;
+                    db.NameSpaces.Add(ns);
                     db.SaveChanges();
                     db.Commit();
+                }
+            }
+            else
+            {
+                using (var db = new ContentRepository())
+                {
+                    var nameSpaceQry = from n in db.NameSpaces where n.Id == nameSpace.Id select n;
+                    if (nameSpaceQry.Any())
+                    {
+                        var ns = nameSpaceQry.First();
+                        ns.Description = nameSpace.Description;
+                        ns.NameSpaceName = nameSpace.NameSpaceName;
+                        db.SaveChanges();
+                        db.Commit();
+                    }
                 }
             }
             return View("Index");
