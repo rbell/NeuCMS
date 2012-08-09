@@ -2,22 +2,24 @@
 @using NeuCMS.Models
 @using NeuCMS.HtmlHelpers
 @{
-    var grid = new JqGridHelper<NameSpaceGridModel>("namespaces",
-                                                    caption: "NameSpaces",
-                                                    dataType: Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.Json,
-                                                    footerEnabled: true,
-                                                    methodType: Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes.Post,
-                                                    pager: true,
-                                                    rowsList: new List<int> {10, 20, 30, 40, 50},
-                                                    rowsNumber: 10,
-                                                    sortingName: "Id",
-                                                    sortingOrder: JqGridSortingOrders.Asc,
-                                                    url: Url.Action("NameSpaces"),
-                                                    userDataOnFooter: true,
-                                                    viewRecords: true,
-                                                    onSelectRow: "rowSelected"
-
-        ).Navigator(
+    var grid = new JqGridHelper<NameSpaceGridModel>(
+        new JqGridOptions<NameSpaceGridModel>("namespaces")
+            {
+                Caption = "NameSpaces",
+                DataType = Lib.Web.Mvc.JQuery.JqGrid.JqGridDataTypes.Json,
+                FooterEnabled = true,
+                MethodType = Lib.Web.Mvc.JQuery.JqGrid.JqGridMethodTypes.Post,
+                Pager = true,
+                RowsList = new List<int> {10, 20, 30, 40, 50},
+                RowsNumber = 10,
+                SortingName = "Id",
+                SortingOrder = JqGridSortingOrders.Asc,
+                Url = Url.Action("NameSpaces"),
+                UserDataOnFooter = true,
+                ViewRecords = true,
+                OnSelectRow = "rowSelected"
+            })
+        .Navigator(
             options: new JqGridNavigatorOptions() {Add = true, Delete = false, Edit = false, Search = false, Refresh = false, AddFunction = "addNameSpace"}
         );
 }
