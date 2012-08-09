@@ -3,8 +3,6 @@
 @model NeuCMS.Models.NameSpaceGridModel
 <script type="text/javascript">
     jQuery('#editNamespaceDiv').ready(function () {
-        $("#editNamespaceDiv").jqm();
-        $("#editNamespaceDiv").jqmShow();
         
         //  Create json instance of model
         var data = @Html.Raw(Json.Encode(Model));
@@ -17,12 +15,9 @@
         // Apply the bindings
         ko.applyBindings(viewModel);
         
-        $("#cancel").click(function() {$("#editNamespaceDiv").jqmHide()});
-
     });
 </script>
-<div id="editNamespaceDiv" class="jqmWindow">
-    <form data-bind="submit: save">
+        <form data-bind="submit: save">
         <p>
             @Html.LabelFor(m => m.Id)
             <span data-bind="text: Id" />
@@ -35,9 +30,9 @@
             @Html.LabelFor(m => m.Description)
             <input data-bind="value: Description" />
         </p>
-        <p>
-            <button type="submit">Save</button>    
-            <button id="cancel">Cancel</button>    
-        </p>
-    </form>
+            <p>
+                <input type="submit" class="button-save" value="Save"/>
+            </p>
+        </form>
+    </div>
 </div>

@@ -151,3 +151,21 @@
 {
 	background-image: url('images/administration.png');
 }
+
+.button-save {
+	border-radius: 3px 3px 3px 3px;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 1px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	display: inline-block;
+	font: 13px/17px 'PTSansRegular',Arial,Helvetica,sans-serif;
+	margin: 2px;
+	outline: medium none;
+	overflow: hidden;
+	padding: 3px 9px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+	width: auto;
+	height: auto;
+	background-color: #D42D2D;	
+	border: 1px solid #762929;
+    color: #FFFFFF;
+}

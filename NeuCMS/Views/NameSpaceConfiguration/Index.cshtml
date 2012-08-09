@@ -18,27 +18,38 @@
         );
 
 }
-
 @section JavaScript
 {
     <script type="text/javascript">
         $(document).ready(function() {
             @grid.GetJavaScript();
+            $("#editNamespaceDiv").jqm({modal:true});
         });
 
     var lastSelected;
     function rowSelected(id) {
-        if (id && lastSelected !== id) {
-            $.get("@Url.Action("EditNameSpace")" + "?id=" + id, function(data) {
-                $('#namespaceDetail').replaceWith(data);
-            });
-
-            lastSelected = id;
-        }
+        $.get("@Url.Action("EditNameSpace")" + "?id=" + id, function(data) {
+            $('#formData').replaceWith(data);
+            $("#editNamespaceDiv").jqmShow();
+        });
+        
+        $('#namespaces').jqGrid('resetSelection');
     }
     
     </script>
 }
-
 @grid.GetHtml()
-<div id="namespaceDetail"></div>
+<div id="namespaceDetail">
+    <div id="editNamespaceDiv" class="jqmWindow">
+        <div class="jqmHeader">
+            <div class="jqmHeaderTitle">
+                Title</div>
+            <div class="jqmHeaderCloseButton">
+                <input type="image" src="@Url.Content("~/Content/images/led-icons/cross.png")" class="jqmClose"/>
+            </div>
+        </div>
+        <div class="jqmContent">
+            <div id="formData"></div>
+        </div>
+    </div>
+</div>
